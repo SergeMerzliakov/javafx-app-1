@@ -8,7 +8,7 @@ version '1.0.0'
 repositories {
     mavenCentral()
     flatDir {
-        dirs '/Library/Java/javafx/11.0.2/lib'
+        dirs '/Library/Java/javafx/12.0/lib'
     }
 }
 
@@ -17,13 +17,10 @@ mainClassName = 'org.epistatic.app.Main'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile 'org.openjfx:javafx-controls:11.0.2'
-    compile 'org.openjfx:javafx-fxml:11.0.2'
-    compile 'org.openjfx:javafx-base:11.0.2'
     compile name: 'javafx.fxml'
+    compile name: 'javafx.controls'
     compile name: 'javafx.base'
     compile name: 'javafx.graphics'
-    compile name: 'javafx.controls'
 }
 
 compileKotlin {
@@ -33,19 +30,10 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-//compileJava {
-//    doFirst {
-//        options.compilerArgs = [
-//                '--module-path', '/Library/Java/javafx/11.0.2/lib',
-//                '--add-modules', 'javafx.controls,javafx.fxml'
-//        ]
-//    }
-//}
-
 run {
     doFirst {
         jvmArgs = [
-                '--module-path', '/Library/Java/javafx/11.0.2/lib',
+                '--module-path', '/Library/Java/javafx/12.0/lib',
                 '--add-modules', 'javafx.fxml,javafx.controls'
         ]
     }
