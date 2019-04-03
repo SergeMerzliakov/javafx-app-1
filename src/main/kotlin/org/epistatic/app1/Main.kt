@@ -1,4 +1,4 @@
-package org.epistatic.app
+package org.epistatic.app1
 
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
