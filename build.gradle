@@ -13,7 +13,6 @@ repositories {
 }
 
 apply plugin: 'application'
-mainClassName = 'org.epistatic.app.Main'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
@@ -30,7 +29,11 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-run {
+task runApp1(type: JavaExec, overwrite:true) {
+    group = "Application"
+    description = "Runs Application 1"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app1.Main'
     doFirst {
         jvmArgs = [
                 '--module-path', '/Library/Java/javafx/12.0/lib',
