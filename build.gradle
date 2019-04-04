@@ -2,17 +2,25 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.21'
 }
 
+
+// BEGIN YOUR SETUP
+
+def JFX_INSTALL = '/Library/Java/javafx/12.0'
+
+// END YOUR SETUP
+
 group 'org.epistatic'
 version '1.0.0'
 
 repositories {
     mavenCentral()
     flatDir {
-        dirs '/Library/Java/javafx/12.0/lib'
+        dirs "${JFX_INSTALL}/lib"
     }
 }
 
 apply plugin: 'application'
+mainClassName = 'org.epistatic.app1.Main'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
@@ -36,7 +44,7 @@ task runApp1(type: JavaExec, overwrite:true) {
     main = 'org.epistatic.app1.Main'
     doFirst {
         jvmArgs = [
-                '--module-path', '/Library/Java/javafx/12.0/lib',
+                '--module-path', "${JFX_INSTALL}/lib",
                 '--add-modules', 'javafx.fxml,javafx.controls'
         ]
     }
