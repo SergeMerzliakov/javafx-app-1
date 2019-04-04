@@ -3,11 +3,13 @@
 This repository contains a simple demonstration JavaFX (OpenJFX 12) application, written
 in Kotlin. 
 
-The goal is to provide a working Kotlin/OpenJFX project, with a working build that you 
+The goal is to provide a working Kotlin/OpenJFX projects, with working builds that you 
 can then modify to suite your needs.
 
-The application can be run from the command line, as long as the required software
-is installed.
+All applications can be run from the command line, as long as the required software
+is installed (see Requirements section).
+
+I blog about this repo at [https://thickclient.blog/]()
 
 ### Requirements
 
