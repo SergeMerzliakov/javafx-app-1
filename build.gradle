@@ -37,7 +37,7 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-task runApp1(type: JavaExec, overwrite:true) {
+task runApp1(type: JavaExec) {
     group = "Application"
     description = "Runs Application 1"
     classpath sourceSets.main.runtimeClasspath
