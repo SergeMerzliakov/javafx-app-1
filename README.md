@@ -9,7 +9,7 @@ can then modify to suite your needs.
 All applications can be run from the command line, as long as the required software
 is installed (see Requirements section).
 
-My blog on JavaFx + Kotlin [https://thickclient.blog/]()
+My blog on JavaFx + Kotlin [https://thickclient.blog/](https://thickclient.blog/)
 
 ### Requirements
 
