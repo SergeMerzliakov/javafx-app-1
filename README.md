@@ -7,7 +7,7 @@ The goal is to provide a working Kotlin/OpenJFX projects, with working builds th
 can then modify to suite your needs.
 
 All applications can be run from the command line, as long as the required software
-is installed (see Requirements section).
+is installed (see Install section).
 
 The list of demo apps includes:
 
@@ -28,12 +28,11 @@ If you want to edit FXML and keep your sanity:
 * [SceneBuilder for Java 11](https://gluonhq.com/products/scene-builder/)
 
 
----
 #### Dependency Management and Build - Gradle
 
 Gradle is bundled as part of the project - no need to install anything.
 
-**Note:** Remember the path of the OpenJFX install. I will refer this as the **JFX_INSTALL** dir.
+**Note:** Remember the path of the OpenJFX install. I will refer to this as the **JFX_INSTALL** dir.
 
 ---
 ### Configuration
@@ -51,15 +50,14 @@ Find the section in the build.gradle:
 
     // END YOUR SETUP
 
-and overwrite your OpenJFX install directory.
+and update the JFX_INSTALL value with your OpenJFX install directory.
 
 ---
 ### Build The Applications
 
-Build the application
+Build the application with gradle:
 
     gradlew clean build
-
 
 
 ---
@@ -76,8 +74,6 @@ Start the application with:
 
     gradlew runApp1
     
-
-which will start up the application.
 
 ---
 #### Application 2 - Drag and Drop
