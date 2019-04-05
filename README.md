@@ -9,19 +9,36 @@ can then modify to suite your needs.
 All applications can be run from the command line, as long as the required software
 is installed (see Requirements section).
 
-My blog on JavaFx + Kotlin [https://thickclient.blog/](https://thickclient.blog/)
+The list of demo apps includes:
 
-### Requirements
+  * **Application 1** -  Basic JavaFX/Kotlin Application
+  * **Application 2** -  Drag and Drop 
+  
+My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
 
-1) Java 11 SDK
-2) OpenJFX 12 (11 should work as well)
-3) SceneBuilder for Java 11 (optional)
+---
+### Install
+You will need to install:
 
-After you install all of the above, you will need to remember the path of the OpenJFX 
-install. I will refer this as the **JFX_INSTALL** dir.
+* Java 11 SDK (Oracle or Open JDK)
+* [OpenJFX 12](https://gluonhq.com/products/javafx/)  (OpenJFX 11 should work as well)
+
+If you want to edit FXML and keep your sanity:
+
+* [SceneBuilder for Java 11](https://gluonhq.com/products/scene-builder/)
 
 
-### Setup
+---
+#### Dependency Management and Build - Gradle
+
+Gradle is bundled as part of the project - no need to install anything.
+
+**Note:** Remember the path of the OpenJFX install. I will refer this as the **JFX_INSTALL** dir.
+
+---
+### Configuration
+
+*The projects does NOT need Gradle to be installed as this is included inside the project via a gradle wrapper*
 
 ##### Set JFX_INSTALL variable in build.gradle file
 
@@ -34,19 +51,45 @@ Find the section in the build.gradle:
 
     // END YOUR SETUP
 
-and overwrite your OpenJFX install directory. On my mac I prefer to put in /Library/Java, 
-right next to my Java SDKs.
+and overwrite your OpenJFX install directory.
 
-### Start the Application
-
+---
+### Build The Applications
 
 Build the application
 
     gradlew clean build
 
-Run the command:
+
+
+---
+#### Application 1 - Basic JavaFx + Kotlin Application
+
+* ListView
+* TableView
+* Tab Panes
+* Sorted ObservableList Model
+* Use of Boostrap.css stylesheet
+* FXML based UI
+
+Start the application with:
 
     gradlew runApp1
     
 
-which should start up the application.
+which will start up the application.
+
+---
+#### Application 2 - Drag and Drop
+
+* Drag and Drop between listView controls
+* Drag files from Desktop
+* Custom Drag images 
+* Sorted ObservableList Model
+* Use of Stylesheet in code and in FXML
+* FXML based UI
+
+Start the application with:
+
+    gradlew runApp2
+    
