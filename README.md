@@ -1,10 +1,10 @@
 ### Overview
 
-This repository contains a simple demonstration JavaFX (OpenJFX 12) application, written
+This repository contains simple demo JavaFX 11+ applications, written
 in Kotlin. 
 
-The goal is to provide a working Kotlin/OpenJFX projects, with working builds that you 
-can then modify to suite your needs.
+The goal is to provide Kotlin/OpenJFX demo applications, which work out of the box. 
+If they don't work - let me know! I hate demos that don't work.
 
 All applications can be run from the command line, as long as the required software
 is installed (see Install section).
