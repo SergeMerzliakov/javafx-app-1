@@ -1,0 +1,12 @@
+
+.general-placeholder {
+    -fx-font-size: 16px;
+    -fx-fill: #E6E6E6;
+    -fx-font-weight: bolder;
+}
+
+.file-placeholder {
+    -fx-font-size: 24px;
+    -fx-fill: #E6E6E6;
+    -fx-font-weight: bolder;
+}

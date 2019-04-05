@@ -39,9 +39,22 @@ compileTestKotlin {
 
 task runApp1(type: JavaExec) {
     group = "Application"
-    description = "Runs Application 1"
+    description = "Runs Application 1 - Basic JavaFx"
     classpath sourceSets.main.runtimeClasspath
     main = 'org.epistatic.app1.Main'
+    doFirst {
+        jvmArgs = [
+                '--module-path', "${JFX_INSTALL}/lib",
+                '--add-modules', 'javafx.fxml,javafx.controls'
+        ]
+    }
+}
+
+task runApp2(type: JavaExec) {
+    group = "Application"
+    description = "Runs Application 2 - Drag and Drop"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app2.Main'
     doFirst {
         jvmArgs = [
                 '--module-path', "${JFX_INSTALL}/lib",

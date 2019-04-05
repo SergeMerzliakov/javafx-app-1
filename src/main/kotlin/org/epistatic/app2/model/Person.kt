@@ -17,29 +17,31 @@
  * under the License.
  **/
 
-package org.epistatic.app1
+package org.epistatic.app2.model
 
-import javafx.application.Application
-import javafx.fxml.FXMLLoader
-import javafx.scene.Parent
-import javafx.scene.Scene
-import javafx.stage.Stage
 
-class Main : Application() {
+/**
+ * Basic model
+ */
+class Person(val firstName: String, val lastName: String) {
 
-	@Throws(Exception::class)
-	override fun start(primaryStage: Stage) {
-		val root = FXMLLoader.load<Parent>(javaClass.getResource("/app1/app1.fxml"))
-		primaryStage.title = "JavaFx Kotlin 101"
-		primaryStage.scene = Scene(root)
-		primaryStage.show()
+	val id = hashCode()
+
+	override fun toString(): String {
+		return "$firstName $lastName"
 	}
 
-	companion object {
-		@JvmStatic
-		fun main(args: Array<String>) {
-			launch(Main::class.java, *args)
-		}
+	override fun equals(other: Any?): Boolean {
+		if (this === other) return true
+		if (javaClass != other?.javaClass) return false
+		other as Person
+		if (id != other.id) return false
+		return true
+	}
+
+	override fun hashCode(): Int {
+		var result = firstName.hashCode()
+		result = 31 * result + lastName.hashCode()
+		return result
 	}
 }
-

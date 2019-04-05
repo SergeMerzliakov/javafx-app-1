@@ -17,7 +17,7 @@
  * under the License.
  **/
 
-package org.epistatic.app1
+package org.epistatic.app2
 
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
@@ -25,13 +25,21 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 
+/**
+ * A Basic Drag and Drop Application demonstrating
+ *
+ *   1) Dragging between Controls
+ *   2) Dragging Items from the Desktop
+ *   3) Automatic Sorting of Items in Lists
+ *   4) Observable Lists for Managing Model-View updates
+ */
 class Main : Application() {
 
 	@Throws(Exception::class)
 	override fun start(primaryStage: Stage) {
-		val root = FXMLLoader.load<Parent>(javaClass.getResource("/app1/app1.fxml"))
-		primaryStage.title = "JavaFx Kotlin 101"
-		primaryStage.scene = Scene(root)
+		val root = FXMLLoader.load<Parent>(javaClass.getResource("/app2/app2.fxml"))
+		primaryStage.title = "Drag and Drop"
+		primaryStage.scene = Scene(root, 650.0, 550.0)
 		primaryStage.show()
 	}
 
@@ -42,4 +50,3 @@ class Main : Application() {
 		}
 	}
 }
-
