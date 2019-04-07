@@ -21,11 +21,8 @@ package org.epistatic.app1
 
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
-import javafx.scene.control.ListCell
-import javafx.scene.control.ListView
 import javafx.scene.control.TableCell
 import javafx.scene.control.TableView
-import javafx.scene.input.KeyCode
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.assertj.core.api.Assertions.assertThat
@@ -37,19 +34,16 @@ import org.testfx.framework.junit.ApplicationTest
 /**
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests per se.
+ *
+ * This tests does not really do anything. Just showing how to access
+ * table views.
  */
-class IntegrationTest : ApplicationTest() {
+class TableTabIntegrationTest : ApplicationTest() {
 
 	// Node Ids defined in the FXML file. Is a CSS Id selector
 	// Use these to uniquely identify JavaFX controls for testing
 	companion object {
-		const val LIST_DEMO_TAB = "#listDemoTab"
 		const val TABLE_DEMO_TAB = "#tableDemoTab"
-
-		const val ITEM_LIST_VIEW = "#itemListView"
-		const val ENTER_ITEM_FIELD = "#enterItemField"
-		const val ADD_ITEM_BUTTON = "#addItemButton"
-
 		const val PROPERTY_TABLE_VIEW = "#propertyTableView"
 	}
 
@@ -67,28 +61,9 @@ class IntegrationTest : ApplicationTest() {
 	}
 
 
-	@Test
-	fun shouldAddItemToList() {
-		//ensure "List Demo" tab has focus
-		clickOn(LIST_DEMO_TAB)
-
-		//create new item for list - should appear at the end
-		val newItem = "Zoo"
-		clickOn(ENTER_ITEM_FIELD)
-		write(newItem)
-		type(KeyCode.TAB)
-		clickOn(ADD_ITEM_BUTTON)
-
-		// check model updated
-		val itemCount = controller.itemListView.items.size
-		assertThat(itemCount).isEqualTo(4)
-
-		// check view updated
-		val zooListItem = getListViewRow<String>(ITEM_LIST_VIEW, itemCount - 1)
-		assertThat(zooListItem.text).isEqualTo(newItem)
-	}
-
-
+	/**
+	 * Not really a good test - just shows how to access table views
+	 */
 	@Test
 	fun shouldCheckTableDemoPropertyExists() {
 		//ensure "List Demo" tab has focus
@@ -99,17 +74,6 @@ class IntegrationTest : ApplicationTest() {
 		// Check that the property exists and has the correct values
 		assertThat(ageProperty.name).isEqualTo("age")
 		assertThat(ageProperty.value).isEqualTo("40")
-	}
-
-
-	/**
-	 * Helper function to get a row from a ListView
-	 *
-	 * Type T is the type of the ListView data model.
-	 */
-	private fun <T> getListViewRow(viewId: String, row: Int): ListCell<T> {
-		val listView = lookup(viewId).query<ListView<T>>()
-		return from(listView).lookup(".list-cell").nth(row).query()
 	}
 
 
@@ -129,5 +93,4 @@ class IntegrationTest : ApplicationTest() {
 
 		return SomeProperty(cell1.text, cell2.text)
 	}
-
 }

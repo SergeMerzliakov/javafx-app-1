@@ -21,10 +21,7 @@ package org.epistatic.app1.controller
 
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
-import javafx.scene.control.ListView
-import javafx.scene.control.TableColumn
-import javafx.scene.control.TableView
-import javafx.scene.control.TextField
+import javafx.scene.control.*
 import javafx.scene.control.cell.PropertyValueFactory
 import javafx.stage.Stage
 import org.epistatic.app1.model.SomeProperty
@@ -35,14 +32,28 @@ import org.epistatic.app1.model.SomeProperty
  * fx:controller attribute in the FXML document maps a "controller" class with an FXML document.
  *
  * A controller is a compiled class that implements the "code behind" the object hierarchy defined by the document.
+ *
+ * Note: This controller currently manages three Tab Panes, and ideally this should probably be split up
+ * into a controller for each logical section of the application.
  */
 class Controller {
 
+	// List Tab Controls
 	@FXML lateinit var itemListView: ListView<String>
 	@FXML lateinit var newItemField: TextField
+
+	// Table Tab Controls
 	@FXML lateinit var tableView: TableView<SomeProperty>
 	@FXML lateinit var propertyColumn: TableColumn<SomeProperty, String>
 	@FXML lateinit var valueColumn: TableColumn<SomeProperty, String>
+
+	// Field Tab Controls
+	@FXML lateinit var schemeCombo: ComboBox<String>
+	@FXML lateinit var hostField: TextField
+	@FXML lateinit var portField: TextField
+	@FXML lateinit var generateUrlButton: Button
+	@FXML lateinit var urlLabel: Label
+
 
 	private val listModel = FXCollections.observableArrayList<String>()
 	private val tableModel = FXCollections.observableArrayList<SomeProperty>()
@@ -54,6 +65,7 @@ class Controller {
 	fun initialize() {
 		initializeListTab()
 		initializeTableTab()
+		initializeFieldTab()
 	}
 
 	/**
@@ -87,6 +99,15 @@ class Controller {
 		valueColumn.cellValueFactory = PropertyValueFactory<SomeProperty, String>("value")
 	}
 
+
+	private fun initializeFieldTab(){
+		// fixed list so just use Strings here
+		schemeCombo.items.add("http")
+		schemeCombo.items.add("https")
+		schemeCombo.selectionModel.select(0)
+	}
+
+
 	@FXML
 	fun closeApplication() {
 		val stage = itemListView.scene.window as Stage
@@ -104,5 +125,21 @@ class Controller {
 			return
 
 		listModel.add(newItem)
+	}
+
+	/**
+	 * Put the URL together in the urlLabel. No input validation
+	 * here for the sake of simplicity
+	 */
+	@FXML
+	fun generateUrlClicked() {
+		val scheme = schemeCombo.selectionModel.selectedItem
+		val host = hostField.text.trim()
+
+		// Cheating here - no real integer validation -
+		// just default to 80 if integer conversion fails
+		val port = portField.text.trim().toIntOrNull() ?: 80
+
+		urlLabel.text = "$scheme://$host:$port"
 	}
 }
