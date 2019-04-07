@@ -1,12 +1,11 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+    id 'org.jetbrains.kotlin.jvm' version "1.3.21"
 }
 
+def KOTLIN_VERSION = "1.3.21"
 
 // BEGIN YOUR SETUP
-
 def JFX_INSTALL = '/Library/Java/javafx/12.0'
-
 // END YOUR SETUP
 
 group 'org.epistatic'
@@ -28,6 +27,11 @@ dependencies {
     compile name: 'javafx.controls'
     compile name: 'javafx.base'
     compile name: 'javafx.graphics'
+
+    testCompile "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
+    testCompile 'org.assertj:assertj-core:3.11.1'
+    testCompile 'org.testfx:testfx-core:4.0.15-alpha'
+    testCompile 'org.testfx:testfx-junit:4.0.15-alpha'
 }
 
 compileKotlin {

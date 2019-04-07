@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-
 <VBox prefHeight="500.0" prefWidth="600.0" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.epistatic.app1.controller.Controller">
    <children>
       <TabPane maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
          <tabs>
-            <Tab text="List Demo">
+           <Tab id="listDemoTab" text="List Demo">
                <content>
                   <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0">
                     <columnConstraints>
@@ -42,12 +28,12 @@
                                     <Insets left="10.0" />
                                  </FlowPane.margin>
                               </Label>
-                              <TextField fx:id="newItemField" maxWidth="1.7976931348623157E308">
+                             <TextField id="enterItemField" fx:id="newItemField" maxWidth="1.7976931348623157E308">
                                  <FlowPane.margin>
                                     <Insets right="10.0" />
                                  </FlowPane.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" onAction="#addItem" text="Add To List">
+                             <Button id="addItemButton" mnemonicParsing="false" onAction="#addItem" text="Add To List">
                                  <FlowPane.margin>
                                     <Insets right="10.0" />
                                  </FlowPane.margin>
@@ -59,7 +45,8 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <ListView fx:id="itemListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                       <ListView id="itemListView" fx:id="itemListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                                 GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                            <GridPane.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </GridPane.margin>
@@ -68,7 +55,7 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="Table Demo">
+           <Tab id="tableDemoTab" text="Table Demo">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -87,7 +74,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                             <TableView id="propertyTableView" fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                 <columns>
                                   <TableColumn fx:id="propertyColumn" prefWidth="75.0" text="Property" />
                                   <TableColumn fx:id="valueColumn" prefWidth="75.0" text="Value" />
@@ -106,7 +93,7 @@
       </TabPane>
       <AnchorPane maxHeight="50.0" maxWidth="1.7976931348623157E308" minHeight="50.0" prefHeight="50.0" VBox.vgrow="NEVER">
          <children>
-            <Button layoutX="314.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="12.0" />
+           <Button id="closeButton" layoutX="314.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="12.0"/>
          </children>
       </AnchorPane>
    </children>

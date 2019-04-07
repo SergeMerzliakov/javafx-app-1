@@ -55,11 +55,15 @@ and update the JFX_INSTALL value with your OpenJFX install directory.
 ---
 ### Build The Applications
 
-Build the application with gradle:
+Build the applications with gradle:
 
     gradlew clean build
 
 
+Run all the unit and integration tests
+
+    gradlew test
+    
 ---
 #### Application 1 - Basic JavaFx + Kotlin Application
 
