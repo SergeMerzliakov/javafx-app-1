@@ -43,8 +43,8 @@ import java.io.File
 class Controller {
 
 	companion object {
-		val happy = Image(javaClass.getResourceAsStream("/app2/happy.png"))
-		val sad = Image(javaClass.getResourceAsStream("/app2/sad.png"))
+		val happy = Image(Controller::class.java.getResourceAsStream("/app2/happy.png"))
+		val sad = Image(Controller::class.java.getResourceAsStream("/app2/sad.png"))
 	}
 
 	@FXML lateinit var friendListView: ListView<Person>
