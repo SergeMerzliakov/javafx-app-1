@@ -67,12 +67,13 @@ Run all the unit and integration tests
 ---
 #### Application 1 - Basic JavaFx + Kotlin Application
 
+* Text Fields, Combo Boxes
 * ListView
 * TableView
-* Tab Panes
-* Sorted ObservableList Model
-* Use of Boostrap.css stylesheet
+* Tabs
+* CSS Stylesheets
 * FXML based UI
+* TestFX tests
 
 Start the application with:
 
@@ -85,8 +86,7 @@ Start the application with:
 * Drag and Drop between listView controls
 * Drag files from Desktop
 * Custom Drag images 
-* Sorted ObservableList Model
-* Use of Stylesheet in code and in FXML
+* CSS Stylesheets
 * FXML based UI
 
 Start the application with:
