@@ -62,7 +62,9 @@ class ItemTabIntegrationTest : ApplicationTest() {
 
 	@Test
 	fun shouldAddItemToList() {
-		//ensure "List Demo" tab has focus
+      val initialItemsSize = controller.itemListView.items.size
+
+      //ensure "List Demo" tab has focus
 		clickOn(LIST_DEMO_TAB)
 
 		//create new item for list - should appear at the end
@@ -74,13 +76,12 @@ class ItemTabIntegrationTest : ApplicationTest() {
 
 		// check model updated
 		val itemCount = controller.itemListView.items.size
-		assertThat(itemCount).isEqualTo(4)
+		assertThat(itemCount).isEqualTo(initialItemsSize + 1)
 
 		// check view updated
 		val zooListItem = getListViewRow<String>(ITEM_LIST_VIEW, itemCount - 1)
 		assertThat(zooListItem.text).isEqualTo(newItem)
 	}
-
 
 	/**
 	 * Helper function to get a row from a ListView

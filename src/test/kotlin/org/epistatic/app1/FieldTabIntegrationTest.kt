@@ -55,7 +55,6 @@ class FieldTabIntegrationTest : ApplicationTest() {
 		val loader = FXMLLoader(javaClass.getResource("/app1/app1.fxml"))
 		val root = loader.load<VBox>()
 		controller = loader.getController()
-
 		stage?.scene = Scene(root)
 		stage?.show()
 	}
