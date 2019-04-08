@@ -94,3 +94,13 @@ Start the application with:
 
     gradlew runApp2
     
+
+### What's Next ?
+
+Some of things I am thinking of:
+* Multiple FXML + Controllers using event based communication with Google Event Bus
+* More advanced CSS Styling
+* TableColumn CellValueFactories for complex objects
+* Using asynchronous events to store application UI state (if you are sick of constantly opening and resizing dialogs)
+  
+
