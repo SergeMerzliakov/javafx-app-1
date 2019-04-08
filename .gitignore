@@ -2,6 +2,7 @@
 .gradle/*
 build/*
 out/
+*.iml
 
 # Compiled class file
 *.class
