@@ -26,12 +26,12 @@
             <RowConstraints fillHeight="false" maxHeight="48.0" minHeight="48.0" prefHeight="48.0" valignment="BOTTOM" vgrow="NEVER" />
         </rowConstraints>
          <children>
-            <ListView fx:id="friendListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-            <ListView fx:id="partyListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-            <ListView fx:id="fileListView" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <ListView id="friendListView" fx:id="friendListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+            <ListView id="partyListView" fx:id="partyListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+            <ListView id="fileListView" fx:id="fileListView" GridPane.columnSpan="2" GridPane.rowIndex="3" />
             <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
                <children>
-                  <Button cancelButton="true" layoutX="315.0" layoutY="198.0" mnemonicParsing="false" onAction="#closeApp" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Button id="cancelButton" cancelButton="true" layoutX="315.0" layoutY="198.0" mnemonicParsing="false" onAction="#closeApp" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
             <Label alignment="CENTER" text="My File List" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
