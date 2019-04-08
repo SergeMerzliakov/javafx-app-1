@@ -88,6 +88,7 @@ Start the application with:
 * Custom Drag images 
 * CSS Stylesheets
 * FXML based UI
+* Drag and Drop TestFX tests
 
 Start the application with:
 
