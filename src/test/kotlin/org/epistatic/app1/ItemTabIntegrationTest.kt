@@ -79,7 +79,7 @@ class ItemTabIntegrationTest : ApplicationTest() {
 		assertThat(itemCount).isEqualTo(initialItemsSize + 1)
 
 		// check view updated
-		val zooListItem = getListViewRow<String>(ITEM_LIST_VIEW, itemCount - 1)
+		val zooListItem = getListViewRow(ITEM_LIST_VIEW, itemCount - 1)
 		assertThat(zooListItem.text).isEqualTo(newItem)
 	}
 
@@ -88,8 +88,8 @@ class ItemTabIntegrationTest : ApplicationTest() {
 	 *
 	 * Type T is the type of the ListView data model.
 	 */
-	private fun <T> getListViewRow(viewId: String, row: Int): ListCell<T> {
-		val listView = lookup(viewId).query<ListView<T>>()
+	private fun getListViewRow(viewId: String, row: Int): ListCell<String> {
+		val listView = lookup(viewId).query<ListView<String>>()
 		return from(listView).lookup(".list-cell").nth(row).query()
 	}
 }
