@@ -28,6 +28,7 @@ import javafx.stage.Stage
 import org.assertj.core.api.Assertions.assertThat
 import org.epistatic.app2.controller.Controller
 import org.epistatic.app2.model.Person
+import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Ignore
 import org.junit.Test
 import org.testfx.framework.junit.ApplicationTest
@@ -36,7 +37,7 @@ import org.testfx.framework.junit.ApplicationTest
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests per se.
  */
-class App2IntegrationTest : ApplicationTest() {
+class App2IntegrationTest : BetterApplicationTest() {
 
 	// Node Ids defined in the FXML file. Is a CSS Id selector
 	// Use these to uniquely identify JavaFX controls for testing
@@ -94,32 +95,9 @@ class App2IntegrationTest : ApplicationTest() {
 
 
 	private fun dragFriendToParty(firstName: String) {
-		val friend = getListViewRowByFirstName(FRIEND_LIST_VIEW, firstName)
+		val friend = getListViewRowByFirstName<Person>(FRIEND_LIST_VIEW, firstName)
 		val d = drag(friend)
 		d.dropTo(PARTY_LIST_VIEW)
-	}
-
-	/**
-	 * Helper function to get a row from a ListView
-	 *
-	 * Type T is the type of the ListView data model.
-	 *
-	 */
-	private fun <T> getListViewRow(viewId: String, row: Int): ListCell<T> {
-		val listView = lookup(viewId).query<ListView<T>>()
-		return from(listView).lookup(".list-cell").nth(row).query()
-	}
-
-	/**
-	 * Helper function to get a row containing the given text from a ListView
-	 * Type T is the type of the ListView data model.
-	 *
-	 * TODO Not ideal, but I am all out of ideas right now
-	 */
-	private fun getListViewRowByFirstName(viewId: String, textToFind: String): ListCell<Person>? {
-		val listView = lookup(viewId).query<ListView<Person>>()
-		val cells = from(listView).lookup(".list-cell").queryAll<ListCell<Person>>()
-		return cells.find { it.item.firstName.contains(textToFind) }
 	}
 
 }

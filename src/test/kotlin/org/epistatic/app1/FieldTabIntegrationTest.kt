@@ -27,6 +27,7 @@ import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.assertj.core.api.Assertions.assertThat
 import org.epistatic.app1.controller.Controller
+import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Test
 import org.testfx.framework.junit.ApplicationTest
 
@@ -34,7 +35,7 @@ import org.testfx.framework.junit.ApplicationTest
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests per se.
  */
-class FieldTabIntegrationTest : ApplicationTest() {
+class FieldTabIntegrationTest : BetterApplicationTest() {
 
 	// Node Ids defined in the FXML file. Is a CSS Id selector
 	// Use these to uniquely identify JavaFX controls for testing

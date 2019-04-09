@@ -28,6 +28,7 @@ import javafx.stage.Stage
 import org.assertj.core.api.Assertions.assertThat
 import org.epistatic.app1.controller.Controller
 import org.epistatic.app1.model.SomeProperty
+import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Test
 import org.testfx.framework.junit.ApplicationTest
 
@@ -38,7 +39,7 @@ import org.testfx.framework.junit.ApplicationTest
  * This tests does not really do anything. Just showing how to access
  * table views.
  */
-class TableTabIntegrationTest : ApplicationTest() {
+class TableTabIntegrationTest : BetterApplicationTest() {
 
 	// Node Ids defined in the FXML file. Is a CSS Id selector
 	// Use these to uniquely identify JavaFX controls for testing
@@ -75,22 +76,5 @@ class TableTabIntegrationTest : ApplicationTest() {
 		assertThat(ageProperty.name).isEqualTo("age")
 		assertThat(ageProperty.value).isEqualTo("40")
 	}
-
-
-	/**
-	 * Helper function to get a row from a TableView
-	 *
-	 *  Creating a generic version of this function ==> fun <T:Any> getTableViewRow(viewId: String, row: Int): T
-	 *
-	 *  is very tricky and I did not quite succeed. Ah, so close...
-	 *
-	 *  see: https://stackoverflow.com/questions/43477903/instantiating-a-generic-type-in-kotlin
-	 */
-	private fun getTableViewRow(viewId: String, row: Int): SomeProperty {
-		val tableView = lookup(viewId).query<TableView<SomeProperty>>()
-		val cell1: TableCell<SomeProperty, String> = from(tableView).lookup(".table-cell").nth(row * 2).query()
-		val cell2: TableCell<SomeProperty, String> = from(tableView).lookup(".table-cell").nth(row * 2 + 1).query()
-
-		return SomeProperty(cell1.text, cell2.text)
-	}
+	
 }
