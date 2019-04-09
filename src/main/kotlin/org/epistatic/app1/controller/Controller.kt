@@ -55,8 +55,8 @@ class Controller {
 	@FXML lateinit var urlLabel: Label
 
 
-	private val listModel = FXCollections.observableArrayList<String>()
-	private val tableModel = FXCollections.observableArrayList<SomeProperty>()
+	val listModel = FXCollections.observableArrayList<String>()
+	val tableModel = FXCollections.observableArrayList<SomeProperty>()
 
 	/**
 	 * Called after JavaFX initialized and document loaded
