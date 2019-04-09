@@ -64,10 +64,18 @@ class App2IntegrationTest : BetterApplicationTest() {
 
 	@Test
 	fun shouldDragSingleFriendToPartyList() {
+      val friendCount = controller.friends.size
+      
 		// drag a single friend to party list
 		dragFriendToParty("Andrea")
 
 		val partyList = lookup(PARTY_LIST_VIEW).query<ListView<Person>>()
+
+      // check model
+      assertThat(controller.friends).hasSize(friendCount - 1)
+      assertThat(controller.partyGuests).hasSize(1)
+      
+      // check view
 		assertThat(partyList.items).hasSize(1)
 		assertThat(partyList.items[0]).hasFieldOrPropertyWithValue("firstName", "Andrea")
 	}
@@ -82,11 +90,11 @@ class App2IntegrationTest : BetterApplicationTest() {
 		val firstNames = controller.friends.map { it.firstName }
 		firstNames.map { dragFriendToParty(it) }
 
-		//check model
+		// check model
 		assertThat(controller.friends).isEmpty()
 		assertThat(controller.partyGuests).hasSize(friendCount)
 
-		//check view
+		// check view
 		val friendView = lookup(FRIEND_LIST_VIEW).query<ListView<Person>>()
 		assertThat(friendView.items).isEmpty()
 		val partyView = lookup(PARTY_LIST_VIEW).query<ListView<Person>>()
@@ -94,10 +102,42 @@ class App2IntegrationTest : BetterApplicationTest() {
 	}
 
 
+   @Test
+   fun shouldDragSingleFriendsOutOfParty() {
+      val friend = "Andrea"
+      val friendCount = controller.friends.size
+      val friendView = lookup(FRIEND_LIST_VIEW).query<ListView<Person>>()
+      val partyView = lookup(PARTY_LIST_VIEW).query<ListView<Person>>()
+      
+      dragFriendToParty(friend)
+  
+      // check model and view after dragging from friendView -> partyView
+      assertThat(controller.friends).hasSize(friendCount - 1)
+      assertThat(controller.partyGuests).hasSize(1)
+
+      assertThat(friendView.items).hasSize(friendCount - 1)
+      assertThat(partyView.items).hasSize(1)
+
+      dragFriendOutOfParty(friend)
+
+      // check model and view after dragging from partyView -> friendView
+      assertThat(controller.friends).hasSize(friendCount)
+      assertThat(controller.partyGuests).isEmpty()
+
+      assertThat(friendView.items).hasSize(friendCount)
+      assertThat(partyView.items).isEmpty()
+   }
+   
+   
 	private fun dragFriendToParty(firstName: String) {
 		val friend = getListViewRowByFirstName<Person>(FRIEND_LIST_VIEW, firstName)
 		val d = drag(friend)
 		d.dropTo(PARTY_LIST_VIEW)
 	}
 
+   private fun dragFriendOutOfParty(firstName: String) {
+      val friend = getListViewRowByFirstName<Person>(PARTY_LIST_VIEW, firstName)
+      val d = drag(friend)
+      d.dropTo(FRIEND_LIST_VIEW)
+   }
 }
