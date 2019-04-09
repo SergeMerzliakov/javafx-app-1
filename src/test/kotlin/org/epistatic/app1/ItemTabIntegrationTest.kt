@@ -63,7 +63,7 @@ class ItemTabIntegrationTest : BetterApplicationTest() {
 
 	@Test
 	fun shouldAddItemToList() {
-      val initialItemsSize = controller.itemListView.items.size
+      val initialCount = controller.listModel.size
 
       //ensure "List Demo" tab has focus
 		clickOn(LIST_DEMO_TAB)
@@ -76,11 +76,12 @@ class ItemTabIntegrationTest : BetterApplicationTest() {
 		clickOn(ADD_ITEM_BUTTON)
 
 		// check model updated
-		val itemCount = controller.itemListView.items.size
-		assertThat(itemCount).isEqualTo(initialItemsSize + 1)
+		val modelCount = controller.listModel.size
+		assertThat(modelCount).isEqualTo(initialCount + 1)
 
 		// check view updated
-		val zooListItem = getListViewRow(ITEM_LIST_VIEW, itemCount - 1)
+		val viewCount = controller.itemListView.items.size
+		val zooListItem = getListViewRow(ITEM_LIST_VIEW, viewCount - 1)
 		assertThat(zooListItem.text).isEqualTo(newItem)
 	}
 
