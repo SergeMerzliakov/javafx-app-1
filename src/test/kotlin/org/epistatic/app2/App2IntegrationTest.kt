@@ -127,13 +127,11 @@ class App2IntegrationTest : BetterApplicationTest() {
 
    private fun dragFriendToParty(firstName: String) {
       val friend = getListViewRowByFirstName<Person>(FRIEND_LIST_VIEW, firstName)
-      val d = drag(friend)
-      d.dropTo(PARTY_LIST_VIEW)
+      drag(friend).dropTo(PARTY_LIST_VIEW)
    }
 
    private fun dragFriendOutOfParty(firstName: String) {
       val friend = getListViewRowByFirstName<Person>(PARTY_LIST_VIEW, firstName)
-      val dragRobot = drag(friend)
-      dragRobot.dropTo(FRIEND_LIST_VIEW)
+      drag(friend).dropTo(FRIEND_LIST_VIEW)
    }
 }
