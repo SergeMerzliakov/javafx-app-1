@@ -23,15 +23,16 @@ mainClassName = 'org.epistatic.app1.Main'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile name: 'javafx.fxml'
-    compile name: 'javafx.controls'
-    compile name: 'javafx.base'
-    compile name: 'javafx.graphics'
+    compile name: "javafx.fxml"
+    compile name: "javafx.controls"
+    compile name: "javafx.base"
+    compile name: "javafx.graphics"
+    compile "com.google.guava:guava:27.1-jre"
 
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
-    testCompile 'org.assertj:assertj-core:3.11.1'
-    testCompile 'org.testfx:testfx-core:4.0.15-alpha'
-    testCompile 'org.testfx:testfx-junit:4.0.15-alpha'
+    testCompile "org.assertj:assertj-core:3.11.1"
+    testCompile "org.testfx:testfx-core:4.0.15-alpha"
+    testCompile "org.testfx:testfx-junit:4.0.15-alpha"
 }
 
 compileKotlin {
