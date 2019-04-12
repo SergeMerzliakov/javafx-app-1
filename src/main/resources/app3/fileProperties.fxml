@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" stylesheets="@app3.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+  <columnConstraints>
+    <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="34.0" minHeight="34.0" prefHeight="34.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="34.0" minHeight="34.0" prefHeight="34.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="34.0" minHeight="34.0" prefHeight="34.0" vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <Label text="Name">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Path" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Size" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin>
+      </Label>
+      <Label id="nameLabel" fx:id="nameLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="file-info-label" GridPane.columnIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" right="10.0" top="2.0" />
+         </GridPane.margin>
+      </Label>
+      <Label id="pathLabel" fx:id="pathLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="file-info-label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" right="10.0" top="2.0" />
+         </GridPane.margin>
+      </Label>
+      <Label id="sizeLabel" fx:id="sizeLabel" maxHeight="1.7976931348623157E308" prefWidth="120.0" styleClass="file-info-label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="2.0" top="2.0" />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>
