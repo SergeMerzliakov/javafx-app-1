@@ -1,12 +1,5 @@
 package org.epistatic.app3.controller
 
-import com.google.common.eventbus.EventBus
-import javafx.fxml.FXML
-import javafx.fxml.FXMLLoader
-import javafx.scene.control.TextArea
-import javafx.scene.layout.Pane
-import javafx.scene.layout.VBox
-
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -26,16 +19,6 @@ import javafx.scene.layout.VBox
  * under the License.
  **/
 
-/**
- * Controller for app3/fileData.fxml
- */
-class FileDataController(eventBus: EventBus) : EventAwareController(eventBus) {
+import com.google.common.eventbus.EventBus
 
-	@FXML lateinit var fileContentsArea: TextArea
-
-	fun load(): Pane {
-		val loader = FXMLLoader(javaClass.getResource("/app3/fileData.fxml"))
-		loader.setController(this)
-		return loader.load<VBox>()
-	}
-}
+abstract class EventAwareController(val eventBus: EventBus)

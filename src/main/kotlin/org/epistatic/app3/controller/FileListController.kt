@@ -1,7 +1,11 @@
 package org.epistatic.app3.controller
 
+import com.google.common.eventbus.EventBus
 import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
 import javafx.scene.control.ListView
+import javafx.scene.layout.Pane
+import javafx.scene.layout.VBox
 import java.io.File
 
 /**
@@ -26,9 +30,16 @@ import java.io.File
 /**
  * Controller for app3/fileList.fxml
  */
-class FileListController {
+class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 
 	@FXML lateinit var fileListView: ListView<File>
+
+	fun load(): Pane {
+		val loader = FXMLLoader(javaClass.getResource("/app3/fileList.fxml"))
+		loader.setController(this)
+		return loader.load<VBox>()
+	}
+
 
 	@FXML
 	fun initialize() {

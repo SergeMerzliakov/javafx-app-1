@@ -68,3 +68,16 @@ task runApp2(type: JavaExec) {
         ]
     }
 }
+
+task runApp3(type: JavaExec) {
+    group = "Application"
+    description = "Runs Application 3 - Multiple Controllers with Events"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app3.Main'
+    doFirst {
+        jvmArgs = [
+                '--module-path', "${JFX_INSTALL}/lib",
+                '--add-modules', 'javafx.fxml,javafx.controls'
+        ]
+    }
+}

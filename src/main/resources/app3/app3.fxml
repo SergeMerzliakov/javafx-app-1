@@ -14,8 +14,8 @@
     <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints vgrow="ALWAYS" />
-    <RowConstraints vgrow="ALWAYS" />
+    <RowConstraints minHeight="80.0" prefHeight="100.0" vgrow="ALWAYS" />
+    <RowConstraints minHeight="50.0" prefHeight="250.0" vgrow="ALWAYS" />
     <RowConstraints fillHeight="false" maxHeight="46.0" minHeight="46.0" prefHeight="46.0" valignment="CENTER" vgrow="NEVER" />
   </rowConstraints>
    <children>
@@ -24,8 +24,17 @@
             <Insets bottom="5.0" right="10.0" />
          </GridPane.margin>
       </Button>
-      <AnchorPane id="leftPane" fx:id="leftPane" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
-      <AnchorPane id="topRightPane" fx:id="topRightPane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
-      <AnchorPane id="bottomRightPane" fx:id="bottomRightPane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <AnchorPane id="leftPane" fx:id="leftPane" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </GridPane.margin></AnchorPane>
+      <AnchorPane id="topRightPane" fx:id="topRightPane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin></AnchorPane>
+      <AnchorPane id="bottomRightPane" fx:id="bottomRightPane" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin></AnchorPane>
    </children>
 </GridPane>

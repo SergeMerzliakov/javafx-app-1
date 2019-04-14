@@ -1,5 +1,6 @@
 package org.epistatic.app3.controller
 
+import com.google.common.eventbus.EventBus
 import javafx.fxml.FXML
 import javafx.scene.control.Button
 import javafx.scene.layout.AnchorPane
@@ -34,10 +35,33 @@ class ApplicationController {
 	@FXML lateinit var topRightPane: AnchorPane
 	@FXML lateinit var bottomRightPane: AnchorPane
 
+	private var eventBus = EventBus()
+	private val fileListController = FileListController(eventBus)
+	private val fileDataController = FileDataController(eventBus)
+	private val filePropertiesController = FilePropertiesController(eventBus)
 
 	@FXML
 	fun initialize(){
+		val fileListPane = fileListController.load()
+		AnchorPane.setTopAnchor(fileListPane, 0.0)
+		AnchorPane.setLeftAnchor(fileListPane, 0.0)
+		AnchorPane.setBottomAnchor(fileListPane, 2.0)
+		AnchorPane.setRightAnchor(fileListPane, 0.0)
+		leftPane.children.add(fileListPane)
 
+		val filePropertiesPane = filePropertiesController.load()
+		AnchorPane.setTopAnchor(filePropertiesPane, 0.0)
+		AnchorPane.setLeftAnchor(filePropertiesPane, 0.0)
+		AnchorPane.setBottomAnchor(filePropertiesPane, 2.0)
+		AnchorPane.setRightAnchor(filePropertiesPane, 5.0)
+		topRightPane.children.add(filePropertiesPane)
+
+		val fileDataPane = fileDataController.load()
+		AnchorPane.setTopAnchor(fileDataPane, 0.0)
+		AnchorPane.setLeftAnchor(fileDataPane, 0.0)
+		AnchorPane.setBottomAnchor(fileDataPane, 2.0)
+		AnchorPane.setRightAnchor(fileDataPane, 5.0)
+		bottomRightPane.children.add(fileDataPane)
 	}
 
 	@FXML
@@ -45,5 +69,4 @@ class ApplicationController {
 		val stage = exitButton.scene.window as Stage
 		stage.close()
 	}
-
 }

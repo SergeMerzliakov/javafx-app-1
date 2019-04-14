@@ -1,7 +1,11 @@
 package org.epistatic.app3.controller
 
+import com.google.common.eventbus.EventBus
 import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
 import javafx.scene.control.Label
+import javafx.scene.layout.GridPane
+import javafx.scene.layout.Pane
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -25,11 +29,18 @@ import javafx.scene.control.Label
 /**
  * Controller for app3/fileProperties.fxml
  */
-class FilePropertiesController {
+class FilePropertiesController(eventBus: EventBus) : EventAwareController(eventBus) {
 
 	@FXML lateinit var nameLabel: Label
 	@FXML lateinit var pathLabel: Label
 	@FXML lateinit var sizeLabel: Label
+
+	fun load(): Pane {
+		val loader = FXMLLoader(javaClass.getResource("/app3/fileProperties.fxml"))
+		loader.setController(this)
+		return loader.load<GridPane>()
+	}
+
 
 	@FXML
 	fun initialize(){
