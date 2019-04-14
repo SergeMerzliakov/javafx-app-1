@@ -8,3 +8,10 @@
     -fx-font-family: Consolas;
     -fx-font-size: 12px;
 }
+
+.file-placeholder {
+    -fx-font-size: 24px;
+    -fx-fill: #E6E6E6;
+    -fx-font-weight: bolder;
+    -fx-font-family: Arial;
+}

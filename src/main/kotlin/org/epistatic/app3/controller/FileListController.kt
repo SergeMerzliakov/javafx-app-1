@@ -1,11 +1,16 @@
 package org.epistatic.app3.controller
 
 import com.google.common.eventbus.EventBus
+import javafx.collections.FXCollections
+import javafx.event.EventHandler
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
+import javafx.scene.control.Label
 import javafx.scene.control.ListView
+import javafx.scene.input.TransferMode
 import javafx.scene.layout.Pane
-import javafx.scene.layout.VBox
+import org.epistatic.app3.event.FileAddedEvent
+import org.epistatic.app3.event.FileSelectedEvent
 import java.io.File
 
 /**
@@ -32,16 +37,62 @@ import java.io.File
  */
 class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 
+	// view
 	@FXML lateinit var fileListView: ListView<File>
+
+	// model
+	val fileList = FXCollections.observableArrayList<File>()
 
 	fun load(): Pane {
 		val loader = FXMLLoader(javaClass.getResource("/app3/fileList.fxml"))
 		loader.setController(this)
-		return loader.load<VBox>()
+		return loader.load<Pane>()
 	}
 
 
 	@FXML
 	fun initialize() {
+		initializePlaceHolders()
+		initializeDragAndDrop()
+		fileListView.items = fileList.sorted()
+
+		fileListView.selectionModel.selectedItemProperty().addListener { _, _, newSelection ->
+			if (newSelection != null) {
+				println("Firing FileSelectedEvent event....")
+				eventBus.post(FileSelectedEvent(newSelection))
+			}
+		}
 	}
+
+	private fun initializeDragAndDrop() {
+		// accept references
+		fileListView.onDragOver = EventHandler { event ->
+			event.acceptTransferModes(TransferMode.LINK)
+			event.consume()
+		}
+
+		fileListView.onDragDropped = EventHandler { event ->
+			if (event.gestureSource == null && event.acceptedTransferMode == TransferMode.LINK) {
+				val files = event.dragboard.files
+				// we will cheat and only add the first file dragged in
+				val firstFile = files.first()
+				files.map { fileList.add(firstFile) }
+				System.out.println("Firing FileAddedEvent event....")
+				eventBus.post(FileAddedEvent(firstFile))
+				event.isDropCompleted = true
+				event.consume()
+			}
+		}
+	}
+
+	/**
+	 * Shown when lists are empty
+	 */
+	private fun initializePlaceHolders() {
+		val filePlaceHolder = Label("Drag Files Here")
+		filePlaceHolder.styleClass.add("file-placeholder")
+		fileListView.placeholder = filePlaceHolder
+	}
+
+
 }

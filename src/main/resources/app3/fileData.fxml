@@ -7,7 +7,7 @@
 
 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" stylesheets="@app3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="34.0" text="File Contents" />
+      <Label id="fileContentsLabel" fx:id="fileContentsLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="34.0" text="File Contents" />
       <TextArea id="fileContentsArea" fx:id="fileContentsArea" prefHeight="200.0" prefWidth="200.0" styleClass="file-data-content" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

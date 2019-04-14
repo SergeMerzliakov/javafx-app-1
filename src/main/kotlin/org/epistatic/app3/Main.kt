@@ -43,7 +43,7 @@ class Main : Application() {
 		loader.setController(controller)
 		val root = loader.load<GridPane>()
 		primaryStage.title = "Multiple Controllers And Events"
-		primaryStage.scene = Scene(root, 650.0, 550.0)
+		primaryStage.scene = Scene(root, 750.0, 550.0)
 		primaryStage.show()
 	}
 

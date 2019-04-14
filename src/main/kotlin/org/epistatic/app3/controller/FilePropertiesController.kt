@@ -1,11 +1,13 @@
 package org.epistatic.app3.controller
 
 import com.google.common.eventbus.EventBus
+import com.google.common.eventbus.Subscribe
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.scene.control.Label
-import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
+import org.epistatic.app3.event.FileAddedEvent
+import org.epistatic.app3.event.FileSelectedEvent
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -38,12 +40,23 @@ class FilePropertiesController(eventBus: EventBus) : EventAwareController(eventB
 	fun load(): Pane {
 		val loader = FXMLLoader(javaClass.getResource("/app3/fileProperties.fxml"))
 		loader.setController(this)
-		return loader.load<GridPane>()
+		return loader.load<Pane>()
 	}
 
+	@Subscribe
+	fun handleFileAdded(e: FileAddedEvent){
+		println("FilePropertiesController processing FileAddedEvent")
+		nameLabel.text = e.file.name
+		pathLabel.text = e.file.path
+		sizeLabel.text = e.file.length().toString()
+	}
 
-	@FXML
-	fun initialize(){
+	@Subscribe
+	fun handleFileSelectionChanged(e: FileSelectedEvent){
+		println("FilePropertiesController processing FileSelectedEvent")
+		nameLabel.text = e.file.name
+		pathLabel.text = e.file.path
+		sizeLabel.text = e.file.length().toString()
 	}
 
 }

@@ -1,4 +1,4 @@
-package org.epistatic.app3.controller
+package org.epistatic.app3.event
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,11 +19,6 @@ package org.epistatic.app3.controller
  * under the License.
  **/
 
-import com.google.common.eventbus.EventBus
+import java.io.File
 
-abstract class EventAwareController(val eventBus: EventBus){
-
-	init{
-		eventBus.register(this)
-	}
-}
+class FileAddedEvent(file: File) : SingleFileEvent(file)
