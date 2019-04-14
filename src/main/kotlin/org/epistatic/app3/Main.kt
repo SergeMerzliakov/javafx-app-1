@@ -21,9 +21,10 @@ package org.epistatic.app3
 
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
-import javafx.scene.Parent
 import javafx.scene.Scene
+import javafx.scene.layout.GridPane
 import javafx.stage.Stage
+import org.epistatic.app3.controller.ApplicationController
 
 /**
  * A Application with multiple controller
@@ -37,7 +38,10 @@ class Main : Application() {
 
 	@Throws(Exception::class)
 	override fun start(primaryStage: Stage) {
-		val root = FXMLLoader.load<Parent>(javaClass.getResource("/app3/app3.fxml"))
+		val controller = ApplicationController()
+		val loader = FXMLLoader(javaClass.getResource("/app3/app3.fxml"))
+		loader.setController(controller)
+		val root = loader.load<GridPane>()
 		primaryStage.title = "Multiple Controllers And Events"
 		primaryStage.scene = Scene(root, 650.0, 550.0)
 		primaryStage.show()

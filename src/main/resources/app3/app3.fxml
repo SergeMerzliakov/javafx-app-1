@@ -19,7 +19,7 @@
     <RowConstraints fillHeight="false" maxHeight="46.0" minHeight="46.0" prefHeight="46.0" valignment="CENTER" vgrow="NEVER" />
   </rowConstraints>
    <children>
-      <Button id="exitButton" fx:id="exitButton" minWidth="80.0" mnemonicParsing="false" text="Exit" GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <Button id="exitButton" fx:id="exitButton" cancelButton="true" minWidth="80.0" mnemonicParsing="false" onAction="#closeApplication" text="Exit" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" right="10.0" />
          </GridPane.margin>

@@ -3,6 +3,7 @@ package org.epistatic.app3.controller
 import javafx.fxml.FXML
 import javafx.scene.control.Button
 import javafx.scene.layout.AnchorPane
+import javafx.stage.Stage
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -38,4 +39,11 @@ class ApplicationController {
 	fun initialize(){
 
 	}
+
+	@FXML
+	fun closeApplication() {
+		val stage = exitButton.scene.window as Stage
+		stage.close()
+	}
+
 }
