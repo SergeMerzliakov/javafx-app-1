@@ -12,7 +12,9 @@ is installed (see Install section).
 The list of demo apps includes:
 
   * **Application 1** -  Basic JavaFX/Kotlin Application
-  * **Application 2** -  Drag and Drop 
+  * **Application 2** -  Drag and Drop
+  * **Application 3** -  Nested Controllers, Event Based using Google EventBus
+  
   
 My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
 
