@@ -27,30 +27,30 @@ import javafx.stage.Stage
 import org.epistatic.app3.controller.ApplicationController
 
 /**
- * A Application with multiple controller
+ * An Application with multiple controllers and nested FXML
  *
  *   1) Assigning controllers to FXML at runtime
- *   2) Multiple Controllers communicating via Events
+ *   2) Multiple controllers communicating via Events (via Google EventBus)
  *   3) Dragging Items from the Desktop
- *   4) Controllers can leverage dependency injection
+ *   4) Controllers can leverage dependency injection, improving testing options
  */
 class Main : Application() {
 
-	@Throws(Exception::class)
-	override fun start(primaryStage: Stage) {
-		val controller = ApplicationController()
-		val loader = FXMLLoader(javaClass.getResource("/app3/app3.fxml"))
-		loader.setController(controller)
-		val root = loader.load<GridPane>()
-		primaryStage.title = "Multiple Controllers And Events"
-		primaryStage.scene = Scene(root, 750.0, 550.0)
-		primaryStage.show()
-	}
+   @Throws(Exception::class)
+   override fun start(primaryStage: Stage) {
+      val controller = ApplicationController()
+      val loader = FXMLLoader(javaClass.getResource("/app3/app3.fxml"))
+      loader.setController(controller)
+      val root = loader.load<GridPane>()
+      primaryStage.title = "Multiple Controllers Using Events"
+      primaryStage.scene = Scene(root, 750.0, 550.0)
+      primaryStage.show()
+   }
 
-	companion object {
-		@JvmStatic
-		fun main(args: Array<String>) {
-			launch(Main::class.java, *args)
-		}
-	}
+   companion object {
+      @JvmStatic
+      fun main(args: Array<String>) {
+         launch(Main::class.java, *args)
+      }
+   }
 }

@@ -32,46 +32,54 @@ import java.nio.charset.Charset
  **/
 
 /**
- * Controller for app3/fileData.fxml
+ * Controller for app3/fileData.fxml - which displays the contents of file in a TextArea
  */
 class FileDataController(eventBus: EventBus) : EventAwareController(eventBus) {
 
-	@FXML lateinit var fileContentsArea: TextArea
+   companion object {
+      const val PREVIEW_BYTES = 8192
+   }
 
-	@FXML lateinit var fileContentsLabel: Label
+   // view
+   @FXML lateinit var fileContentsArea: TextArea
+   @FXML lateinit var fileContentsLabel: Label
 
-	fun load(): Pane {
-		val loader = FXMLLoader(javaClass.getResource("/app3/fileData.fxml"))
-		loader.setController(this)
-		return loader.load<Pane>()
-	}
 
-	@Subscribe
-	fun handleFileAdded(e: FileAddedEvent) {
-		println("FileDataController processing FileAddedEvent")
+   fun load(): Pane {
+      val loader = FXMLLoader(javaClass.getResource("/app3/fileData.fxml"))
+      loader.setController(this)
+      return loader.load<Pane>()
+   }
 
-		loadAndDisplayContents(e.file)
-	}
 
-	@Subscribe
-	fun handleFileSelectionChanged(e: FileSelectedEvent) {
-		println("FileDataController processing FileSelectedEvent")
+   @Subscribe
+   fun handleFileAdded(e: FileAddedEvent) {
+      println("FileDataController processing FileAddedEvent")
 
-		loadAndDisplayContents(e.file)
-	}
+      loadAndDisplayContents(e.file)
+   }
 
-	private fun loadAndDisplayContents(file: File) {
-		// manage large files
-		if (file.length() < 8192) {
-			fileContentsArea.text = String(file.readBytes(), Charset.defaultCharset())
-			fileContentsLabel.text = "Full File Contents"
-		}
-		else {
-			// preview first 8K only - could be multiple gigabytess
-			val stream = file.inputStream()
-			val bytes = stream.readNBytes(8192)
-			fileContentsArea.text = String(bytes, Charset.defaultCharset())
-			fileContentsLabel.text = "File Content Preview - First 8K Only"
-		}
-	}
+
+   @Subscribe
+   fun handleFileSelectionChanged(e: FileSelectedEvent) {
+      println("FileDataController processing FileSelectedEvent")
+
+      loadAndDisplayContents(e.file)
+   }
+
+   /**
+    * Either load the whole file or a preview of it.
+    */
+   private fun loadAndDisplayContents(file: File) {
+      if (file.length() < PREVIEW_BYTES) {
+         fileContentsArea.text = String(file.readBytes(), Charset.defaultCharset())
+         fileContentsLabel.text = "Full File Contents"
+      } else {
+         // preview first PREVIEW_BYTES only - could be a very large file!
+         val stream = file.inputStream()
+         val bytes = stream.readNBytes(PREVIEW_BYTES)
+         fileContentsArea.text = String(bytes, Charset.defaultCharset())
+         fileContentsLabel.text = "File Content Preview - First $PREVIEW_BYTES Bytes Only"
+      }
+   }
 }

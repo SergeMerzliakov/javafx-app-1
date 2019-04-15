@@ -33,7 +33,7 @@ import java.io.File
  **/
 
 /**
- * Controller for app3/fileList.fxml
+ * Controller for app3/fileList.fxml - the list if files dragged into the application
  */
 class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 
@@ -54,8 +54,10 @@ class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 	fun initialize() {
 		initializePlaceHolders()
 		initializeDragAndDrop()
-		fileListView.items = fileList.sorted()
 
+      fileListView.items = fileList.sorted()
+
+      // fire event on EventBus everytime selection changes - most often Mouse Click
 		fileListView.selectionModel.selectedItemProperty().addListener { _, _, newSelection ->
 			if (newSelection != null) {
 				println("Firing FileSelectedEvent event....")

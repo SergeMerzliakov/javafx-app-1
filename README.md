@@ -94,13 +94,24 @@ Start the application with:
 
     gradlew runApp2
     
+    
+#### Application 3 - Multiple Controller + FXML files. Event Based Communication
+
+* Application with nested controllers/FXML
+* Controllers assigned dynamically, allowing dependency injection and better testing
+* Google EventBus used for publish-subscribe event communication between controllers
+* FXML based UI
+
+Start the application with:
+
+    gradlew runApp3    
 
 ### What's Next ?
 
-Some of things I am thinking of:
-* Multiple FXML + Controllers using event based communication with Google Event Bus
+Some of things I am thinking of, in no particular order:
 * More advanced CSS Styling
 * TableColumn CellValueFactories for complex objects
 * Using asynchronous events to store application UI state (if you are sick of constantly opening and resizing dialogs)
+* TornadoFX
   
 
