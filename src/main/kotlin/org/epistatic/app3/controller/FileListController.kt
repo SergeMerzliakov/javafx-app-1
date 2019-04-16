@@ -66,7 +66,7 @@ class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 		}
 
 		fileListView.onDragDropped = EventHandler { event ->
-			if (event.gestureSource == null && event.acceptedTransferMode == TransferMode.LINK) {
+			if (event.acceptedTransferMode == TransferMode.LINK) {
 				val files = event.dragboard.files
 				// we will cheat and only add the first file dragged in
 				val firstFile = files.first()
