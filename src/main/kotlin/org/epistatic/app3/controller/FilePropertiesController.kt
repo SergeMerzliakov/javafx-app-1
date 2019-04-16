@@ -3,9 +3,7 @@ package org.epistatic.app3.controller
 import com.google.common.eventbus.EventBus
 import com.google.common.eventbus.Subscribe
 import javafx.fxml.FXML
-import javafx.fxml.FXMLLoader
 import javafx.scene.control.Label
-import javafx.scene.layout.Pane
 import org.epistatic.app3.event.FileAddedEvent
 import org.epistatic.app3.event.FileSelectedEvent
 
@@ -37,11 +35,6 @@ class FilePropertiesController(eventBus: EventBus) : EventAwareController(eventB
 	@FXML lateinit var pathLabel: Label
 	@FXML lateinit var sizeLabel: Label
 
-	fun load(): Pane {
-		val loader = FXMLLoader(javaClass.getResource("/app3/fileProperties.fxml"))
-		loader.setController(this)
-		return loader.load<Pane>()
-	}
 
 	@Subscribe
 	fun handleFileAdded(e: FileAddedEvent){

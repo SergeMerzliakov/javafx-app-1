@@ -4,11 +4,9 @@ import com.google.common.eventbus.EventBus
 import javafx.collections.FXCollections
 import javafx.event.EventHandler
 import javafx.fxml.FXML
-import javafx.fxml.FXMLLoader
 import javafx.scene.control.Label
 import javafx.scene.control.ListView
 import javafx.scene.input.TransferMode
-import javafx.scene.layout.Pane
 import org.epistatic.app3.event.FileAddedEvent
 import org.epistatic.app3.event.FileSelectedEvent
 import java.io.File
@@ -42,12 +40,6 @@ class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 
 	// model
 	val fileList = FXCollections.observableArrayList<File>()
-
-	fun load(): Pane {
-		val loader = FXMLLoader(javaClass.getResource("/app3/fileList.fxml"))
-		loader.setController(this)
-		return loader.load<Pane>()
-	}
 
 
 	@FXML

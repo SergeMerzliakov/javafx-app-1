@@ -2,8 +2,10 @@ package org.epistatic.app3.controller
 
 import com.google.common.eventbus.EventBus
 import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
 import javafx.scene.control.Button
 import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.Pane
 import javafx.stage.Stage
 
 /**
@@ -43,21 +45,25 @@ class ApplicationController {
 
    @FXML
    fun initialize() {
-      val fileListPane = fileListController.load()
+
+      // load file list UI and insert into it's pane in the application
+      val fileListPane = setupController("/app3/fileList.fxml", fileListController)
       AnchorPane.setTopAnchor(fileListPane, 0.0)
       AnchorPane.setLeftAnchor(fileListPane, 0.0)
       AnchorPane.setBottomAnchor(fileListPane, 2.0)
       AnchorPane.setRightAnchor(fileListPane, 0.0)
       leftPane.children.add(fileListPane)
 
-      val filePropertiesPane = filePropertiesController.load()
+      // load file properties UI and insert into it's pane in the application
+      val filePropertiesPane = setupController("/app3/fileProperties.fxml", filePropertiesController)
       AnchorPane.setTopAnchor(filePropertiesPane, 0.0)
       AnchorPane.setLeftAnchor(filePropertiesPane, 0.0)
       AnchorPane.setBottomAnchor(filePropertiesPane, 2.0)
       AnchorPane.setRightAnchor(filePropertiesPane, 5.0)
       topRightPane.children.add(filePropertiesPane)
 
-      val fileDataPane = fileDataController.load()
+      // load file content UI and insert into it's pane in the application
+      val fileDataPane = setupController("/app3/fileData.fxml", fileDataController)
       AnchorPane.setTopAnchor(fileDataPane, 0.0)
       AnchorPane.setLeftAnchor(fileDataPane, 0.0)
       AnchorPane.setBottomAnchor(fileDataPane, 2.0)
@@ -69,5 +75,14 @@ class ApplicationController {
    fun closeApplication() {
       val stage = exitButton.scene.window as Stage
       stage.close()
+   }
+
+   /**
+    * Utility function to load FXML and link it to its controller
+    */
+   private fun setupController(fxmlPath: String, controller: EventAwareController): Pane {
+      val loader = FXMLLoader(javaClass.getResource(fxmlPath))
+      loader.setController(controller)
+      return loader.load<Pane>()
    }
 }
