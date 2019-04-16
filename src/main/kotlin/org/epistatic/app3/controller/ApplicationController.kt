@@ -38,7 +38,7 @@ class ApplicationController {
    @FXML lateinit var bottomRightPane: AnchorPane
 
    // this bus is used application wide
-   private var applicationEventBus = EventBus()
+   private val applicationEventBus = EventBus()
    private val fileListController = FileListController(applicationEventBus)
    private val fileDataController = FileDataController(applicationEventBus)
    private val filePropertiesController = FilePropertiesController(applicationEventBus)
