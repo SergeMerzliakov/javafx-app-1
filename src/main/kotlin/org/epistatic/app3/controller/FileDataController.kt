@@ -46,7 +46,6 @@ class FileDataController(eventBus: EventBus) : EventAwareController(eventBus) {
    @Subscribe
    fun handleFileAdded(e: FileAddedEvent) {
       println("FileDataController processing FileAddedEvent")
-
       loadAndDisplayContents(e.file)
    }
 
@@ -54,7 +53,6 @@ class FileDataController(eventBus: EventBus) : EventAwareController(eventBus) {
    @Subscribe
    fun handleFileSelectionChanged(e: FileSelectedEvent) {
       println("FileDataController processing FileSelectedEvent")
-
       loadAndDisplayContents(e.file)
    }
 

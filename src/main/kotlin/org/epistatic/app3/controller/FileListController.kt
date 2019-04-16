@@ -49,7 +49,7 @@ class FileListController(eventBus: EventBus) : EventAwareController(eventBus) {
 
       fileListView.items = fileList.sorted()
 
-      // fire event on EventBus everytime selection changes - most often Mouse Click
+      // fire event on EventBus everytime selection changes
 		fileListView.selectionModel.selectedItemProperty().addListener { _, _, newSelection ->
 			if (newSelection != null) {
 				println("Firing FileSelectedEvent event....")

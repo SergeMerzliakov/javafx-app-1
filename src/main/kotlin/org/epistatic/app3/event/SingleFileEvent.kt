@@ -21,5 +21,4 @@ package org.epistatic.app3.event
 
 import java.io.File
 
-abstract class SingleFileEvent(val file: File) {
-}
+abstract class SingleFileEvent(val file: File)
