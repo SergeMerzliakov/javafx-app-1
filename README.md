@@ -18,12 +18,19 @@ The list of demo apps includes:
   
 My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
 
+#### Philosophy
+All the code samples are not meant to be production quality and I use the following guidelines:
+
+* Enough unit tests to illustrate a point or technique
+* Logging, exception and error handling is avoided, unless it’s specifically a focus of the sample
+* Longer variable names to assist in clarity
+* Shorter classes and methods to minimise TL;DR syndrome.
 ---
 ### Install
 You will need to install:
 
-* Java 11 SDK (Oracle or Open JDK)
-* [OpenJFX 12](https://gluonhq.com/products/javafx/)  (OpenJFX 11 should work as well)
+* Java 11 or 12 SDK (Oracle or Open JDK)
+* [OpenJFX 12](https://gluonhq.com/products/javafx/)
 
 If you want to edit FXML and keep your sanity:
 
