@@ -105,21 +105,31 @@ task collateInstall(type:Copy){
 }
 
 
-//jdeps -s --module-path $JAVA_HOME/jmods:/Library/Java/javafx/12.0.1/jmods --no-recursive --class-path lib/* javafx-app-1-1.0.0.jar
+//jdeps -s --module-path $JAVA_HOME/lib:/Library/Java/javafx/12.0.1/lib --no-recursive --class-path installBuild/lib/* installBuild/javafx-app-1-1.0.0.jar
 task listModules{
-    doLast {
+    doFirst {
         exec {
             workingDir '.'
-            commandLine 'jdeps','-s', '--module-path',"/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib:/Library/Java/javafx/12.0.1/lib", '--class-path', 'installBuild/lib/*', 'installBuild/javafx-app-1-1.0.0.jar'
+            commandLine 'jdeps', '-s', '--module-path', '/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib:/Library/Java/javafx/12.0.1/lib', '--no-recursive', '--class-path', 'installBuild/lib/*', 'installBuild/javafx-app-1-1.0.0.jar'
         }
     }
 }
 
+/*
+export DEP_LIST=
+$JAVA_HOME/bin/jlink   --no-man-pages --compress=2 --strip-debug 
+
+ */
 task buildRuntime{
+    def DEP_LIST = "java.base,java.logging,javafx.base,javafx.graphics,javafx.controls,javafx.fxml"
+    def JAVA_HOME = System.properties['java.home']
+    doFirst {
+        delete("installBuild/jre")
+    }
     doLast {
         exec {
             workingDir 'installBuild'
-            commandLine 'jlink','--module-path',"${JFX_INSTALL}/lib",'--no-recursive', 'javafx-app-1-1.0.0.jar'
+            commandLine "${JAVA_HOME}/bin/jlink", '--module-path', "/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib:${JFX_INSTALL}/lib", '--strip-debug', '--no-header-files', '--no-man-pages', '--compress=2', '--add-modules', DEP_LIST, '--output', 'jre'
         }
     }
 }
