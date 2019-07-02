@@ -7,7 +7,7 @@ def KOTLIN_VERSION = "1.3.30"
 
 
 // BEGIN YOUR SETUP
-def JFX_INSTALL = '/Library/Java/javafx/12.0' // e.g. /libs/javafx/12
+def JFX_INSTALL = '/Library/Java/javafx/12.0.1' // e.g. /libs/javafx/12
 // END YOUR SETUP
 
 group 'org.epistatic'
@@ -28,7 +28,7 @@ javafx {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "com.google.guava:guava:27.1-jre"
 
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
@@ -80,5 +80,46 @@ task runApp3(type: JavaExec) {
                 '--module-path', "${JFX_INSTALL}/lib",
                 '--add-modules', 'javafx.fxml,javafx.controls'
         ]
+    }
+}
+
+task runApp4(type: JavaExec) {
+    group = "Application"
+    description = "Runs Application 4 - CSS Styling"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app4.Main'
+    doFirst {
+        jvmArgs = [
+                '--module-path', "${JFX_INSTALL}/lib",
+                '--add-modules', 'javafx.fxml,javafx.controls'
+        ]
+    }
+}
+
+
+task collateInstall(type:Copy){
+    from libsDir
+    into "installBuild"
+    from configurations.compile
+    into "installBuild/lib"
+}
+
+
+//jdeps -s --module-path $JAVA_HOME/jmods:/Library/Java/javafx/12.0.1/jmods --no-recursive --class-path lib/* javafx-app-1-1.0.0.jar
+task listModules{
+    doLast {
+        exec {
+            workingDir '.'
+            commandLine 'jdeps','-s', '--module-path',"/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib:/Library/Java/javafx/12.0.1/lib", '--class-path', 'installBuild/lib/*', 'installBuild/javafx-app-1-1.0.0.jar'
+        }
+    }
+}
+
+task buildRuntime{
+    doLast {
+        exec {
+            workingDir 'installBuild'
+            commandLine 'jlink','--module-path',"${JFX_INSTALL}/lib",'--no-recursive', 'javafx-app-1-1.0.0.jar'
+        }
     }
 }
