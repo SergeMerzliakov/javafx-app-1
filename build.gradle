@@ -3,11 +3,13 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
+import org.apache.tools.ant.taskdefs.condition.Os
+
 def KOTLIN_VERSION = "1.3.30"
+def JAVA_HOME = System.properties['java.home']
 
-
-// BEGIN YOUR SETUP
-def JFX_INSTALL = '/Library/Java/javafx/12.0.1' // e.g. /libs/javafx/12
+// BEGIN YOUR SETUP  // e.g. /libs/javafx/12
+def JFX_INSTALL = '/Library/Java/javafx/12.0.1'
 // END YOUR SETUP
 
 group 'org.epistatic'
@@ -100,36 +102,27 @@ task runApp4(type: JavaExec) {
 task collateInstall(type:Copy){
     from libsDir
     into "installBuild"
-    from configurations.compile
+    from libsDir
     into "installBuild/lib"
+    from "build/libs"
+    into "installBuild"
 }
 
-
-//jdeps -s --module-path $JAVA_HOME/lib:/Library/Java/javafx/12.0.1/lib --no-recursive --class-path installBuild/lib/* installBuild/javafx-app-1-1.0.0.jar
-task listModules{
-    doFirst {
-        exec {
-            workingDir '.'
-            commandLine 'jdeps', '-s', '--module-path', '/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib:/Library/Java/javafx/12.0.1/lib', '--no-recursive', '--class-path', 'installBuild/lib/*', 'installBuild/javafx-app-1-1.0.0.jar'
-        }
+task listModules(type: Exec) {
+    workingDir '.'
+    if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX)){
+        commandLine "deps.sh", JAVA_HOME, JFX_INSTALL, jar.archivePath
+    }
+    else if (Os.isFamily(Os.FAMILY_WINDOWS)){
+        commandLine "deps.bat", JAVA_HOME, JFX_INSTALL, jar.archivePath
     }
 }
 
-/*
-export DEP_LIST=
-$JAVA_HOME/bin/jlink   --no-man-pages --compress=2 --strip-debug 
-
- */
-task buildRuntime{
+task buildRuntime(type: Exec) {
     def DEP_LIST = "java.base,java.logging,javafx.base,javafx.graphics,javafx.controls,javafx.fxml"
-    def JAVA_HOME = System.properties['java.home']
     doFirst {
         delete("installBuild/jre")
     }
-    doLast {
-        exec {
-            workingDir 'installBuild'
-            commandLine "${JAVA_HOME}/bin/jlink", '--module-path', "/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib:${JFX_INSTALL}/lib", '--strip-debug', '--no-header-files', '--no-man-pages', '--compress=2', '--add-modules', DEP_LIST, '--output', 'jre'
-        }
-    }
+    workingDir 'installBuild'
+    commandLine "${JAVA_HOME}/bin/jlink", '--module-path', "${JAVA_HOME}/jmods:${JFX_INSTALL}/jmods", '--strip-debug', '--no-header-files', '--no-man-pages', '--compress=2', '--add-modules', DEP_LIST, '--output', 'jre'
 }
