@@ -98,14 +98,17 @@ task runApp4(type: JavaExec) {
     }
 }
 
-
 task collateInstall(type:Copy){
-    from libsDir
-    into "installBuild"
-    from libsDir
-    into "installBuild/lib"
-    from "build/libs"
-    into "installBuild"
+    delete "installBuild"
+    mkdir "installBuild/lib"
+    copy {
+        from configurations.compile
+        into "installBuild/lib"
+    }
+    copy {
+        from "build/libs"
+        into "installBuild"
+    }
 }
 
 task listModules(type: Exec) {
