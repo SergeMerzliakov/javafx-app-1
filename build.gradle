@@ -113,19 +113,12 @@ task collateInstall(type:Copy){
 
 task listModules(type: Exec) {
     workingDir '.'
-    if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX)){
-        commandLine "deps.sh", JAVA_HOME, JFX_INSTALL, jar.archivePath
-    }
-    else if (Os.isFamily(Os.FAMILY_WINDOWS)){
-        commandLine "deps.bat", JAVA_HOME, JFX_INSTALL, jar.archivePath
-    }
+    commandLine "${JAVA_HOME}/bin/jdeps", '-s', '--module-path', "${JFX_INSTALL}/lib", '--class-path', 'installBuild/lib/*','-recursive', "installBuild/${jar.baseName}-${version}.jar"
 }
 
 task buildRuntime(type: Exec) {
-    def DEP_LIST = "java.base,java.logging,javafx.base,javafx.graphics,javafx.controls,javafx.fxml"
-    doFirst {
-        delete("installBuild/jre")
-    }
+    delete("installBuild/jre")
+    def DEP_LIST = file('dependencies.txt').text
     workingDir 'installBuild'
-    commandLine "${JAVA_HOME}/bin/jlink", '--module-path', "${JAVA_HOME}/jmods:${JFX_INSTALL}/jmods", '--strip-debug', '--no-header-files', '--no-man-pages', '--compress=2', '--add-modules', DEP_LIST, '--output', 'jre'
+    commandLine "${JAVA_HOME}/bin/jlink", '--module-path', "${JFX_INSTALL}/jmods", '--strip-debug', '--no-header-files', '--no-man-pages', '--compress=2', '--add-modules', DEP_LIST, '--output', 'jre'
 }
