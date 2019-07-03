@@ -3,6 +3,7 @@
 build/*
 out/
 installBuild/
+installers/
 *.iml
 
 # Compiled class file
