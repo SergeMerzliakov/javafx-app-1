@@ -1,1 +1,1 @@
-java.base,java.logging,javafx.base,javafx.graphics,javafx.controls,javafx.fxml
+java.base,java.xml,java.desktop,java.scripting,java.logging,javafx.base,javafx.graphics,javafx.controls,javafx.fxml
