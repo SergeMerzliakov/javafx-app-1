@@ -1,0 +1,1 @@
+installBuild\jre\bin\java.exe -cp installBuild/javafx-app-1-1.0.0.jar;installBuild/lib/* org.epistatic.app3.Main
