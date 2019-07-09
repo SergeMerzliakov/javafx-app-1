@@ -3,13 +3,11 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
-import org.apache.tools.ant.taskdefs.condition.Os
-
 def KOTLIN_VERSION = "1.3.30"
 def JAVA_HOME = System.properties['java.home']
 
 // BEGIN YOUR SETUP  // e.g. /libs/javafx/12
-def JFX_INSTALL = 'C:/jfx/jfx-12'
+def JFX_INSTALL = '/Library/Java/javafx/12.0.1'
 // END YOUR SETUP
 
 group 'org.epistatic'
@@ -87,7 +85,7 @@ task runApp3(type: JavaExec) {
 
 task runApp4(type: JavaExec) {
     group = "Application"
-    description = "Runs Application 4 - CSS Styling"
+    description = "Runs Application 4 - Nested Controllers"
     classpath sourceSets.main.runtimeClasspath
     main = 'org.epistatic.app4.Main'
     doFirst {
