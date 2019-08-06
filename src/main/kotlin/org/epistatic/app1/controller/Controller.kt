@@ -24,7 +24,10 @@ import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.control.cell.PropertyValueFactory
 import javafx.stage.Stage
+import org.epistatic.app1.model.FamousPerson
 import org.epistatic.app1.model.SomeProperty
+import java.time.LocalDateTime
+import kotlin.random.Random
 
 /**
  * Initialized By JavaFX Loader when loading the FXML document.
@@ -54,7 +57,13 @@ class Controller {
 	@FXML lateinit var generateUrlButton: Button
 	@FXML lateinit var urlLabel: Label
 
+   @FXML lateinit var historicalView: TableView<FamousPerson>
+   @FXML lateinit var nameColumn: TableColumn<FamousPerson, String>
+   @FXML lateinit var yearsColumn: TableColumn<FamousPerson, Int>
+   @FXML lateinit var occupationColumn: TableColumn<FamousPerson, String>
+   @FXML lateinit var birthColumn: TableColumn<FamousPerson, LocalDateTime>
 
+   val famousPersonModel = FXCollections.observableArrayList<FamousPerson>()
 	val listModel = FXCollections.observableArrayList<String>()
 	val tableModel = FXCollections.observableArrayList<SomeProperty>()
 
@@ -66,6 +75,7 @@ class Controller {
 		initializeListTab()
 		initializeTableTab()
 		initializeFieldTab()
+      initializeSortedTableTab()
 	}
 
 	/**
@@ -107,8 +117,50 @@ class Controller {
 		schemeCombo.selectionModel.select(0)
 	}
 
+   private fun initializeSortedTableTab() {
 
-	@FXML
+      nameColumn.cellValueFactory = PropertyValueFactory<FamousPerson, String>("name")
+      occupationColumn.cellValueFactory = PropertyValueFactory<FamousPerson, String>("occupation")
+      yearsColumn.cellValueFactory = PropertyValueFactory<FamousPerson, Int>("yearsLived")
+      birthColumn.cellValueFactory = PropertyValueFactory<FamousPerson, LocalDateTime>("birthDate")
+
+      // setup date of birth column as the single sort column for the table and sort in descending date order
+      birthColumn.comparator = Comparator.reverseOrder()
+      historicalView.sortOrder.addAll(birthColumn)
+      val sortedList = famousPersonModel.sorted()
+      sortedList.comparatorProperty().bind(historicalView.comparatorProperty())
+      historicalView.items = sortedList
+
+      famousPersonModel.add(FamousPerson("Wolfgang Amadeus Mozart", 36, "Composer", LocalDateTime.of(1756, 1, 27, 0, 0, 0)))
+      famousPersonModel.add(FamousPerson("Pablo Picasso", 91, "Artist", LocalDateTime.of(1881, 10, 25, 0, 0, 0)))
+      famousPersonModel.add(FamousPerson("Genghis Khan", 65, "Conqueror", LocalDateTime.of(1162, 1, 1, 0, 0, 0)))
+   }
+
+   /**
+    * Just add a person at random to demonstrate sorting by birth date
+    */
+   @FXML
+   fun addPerson() {
+      val occupations = arrayListOf("Artist", "Businessman", "Composer", "Scientist", "Soldier", "Statesman")
+      val names = arrayListOf("Andrew", "Amy", "John", "Mary", "Michael", "Nina", "Patrick", "Stephen", "Zane")
+      val surnames = arrayListOf("Bohr", "Chadwick", "Dirac", "Erdos", "Einstein", "Mann", "Starr", "Sommerfeld", "Wolfram")
+      val age = Random.nextInt(19, 100)
+      val year = Random.nextInt(1200, 1900)
+      val month = Random.nextInt(1, 12)
+      val day = Random.nextInt(1, 28)
+      val name = names[Random.nextInt(names.size - 1)]
+      val lastName = surnames[Random.nextInt(surnames.size - 1)]
+      val occupation = occupations[Random.nextInt(occupations.size - 1)]
+
+      famousPersonModel.add(FamousPerson("$name $lastName", age, occupation, LocalDateTime.of(year, month, day, 0, 0, 0)))
+   }
+
+   @FXML
+   fun clearPeople() {
+      famousPersonModel.clear()
+   }
+
+   @FXML
 	fun closeApplication() {
 		val stage = itemListView.scene.window as Stage
 		stage.close()
