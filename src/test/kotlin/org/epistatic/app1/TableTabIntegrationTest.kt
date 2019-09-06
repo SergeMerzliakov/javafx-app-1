@@ -44,7 +44,7 @@ class TableTabIntegrationTest : BetterApplicationTest() {
 	// Node Ids defined in the FXML file. Is a CSS Id selector
 	// Use these to uniquely identify JavaFX controls for testing
 	companion object {
-		const val TABLE_DEMO_TAB = "#tableDemoTab"
+		const val TABLE_DEMO_TAB = "#basicTableTab"
 		const val PROPERTY_TABLE_VIEW = "#propertyTableView"
 	}
 

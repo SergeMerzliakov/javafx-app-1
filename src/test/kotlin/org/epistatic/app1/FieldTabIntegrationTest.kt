@@ -40,7 +40,7 @@ class FieldTabIntegrationTest : BetterApplicationTest() {
 	// Node Ids defined in the FXML file. Is a CSS Id selector
 	// Use these to uniquely identify JavaFX controls for testing
 	companion object {
-		const val FIELD_DEMO_TAB = "#fieldDemoTab"
+		const val FIELD_DEMO_TAB = "#fieldTab"
 		const val SCHEME_COMBO = "#schemeCombo"
 		const val HOST_FIELD = "#hostField"
 		const val PORT_FIELD = "#portField"
