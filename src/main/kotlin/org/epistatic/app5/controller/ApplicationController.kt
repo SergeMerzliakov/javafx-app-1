@@ -1,9 +1,11 @@
 package org.epistatic.app5.controller
 
+import javafx.beans.property.ReadOnlyObjectWrapper
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.TableCell
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.cell.PropertyValueFactory
@@ -11,6 +13,7 @@ import javafx.stage.Stage
 import org.epistatic.app5.model.DateItem
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
+
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -40,19 +43,42 @@ class ApplicationController {
    @FXML lateinit var dateView: TableView<DateItem>
    @FXML lateinit var labelColumn: TableColumn<DateItem, String>
    @FXML lateinit var dateStringColumn: TableColumn<DateItem, String>
-   @FXML lateinit var date2Column: TableColumn<DateItem, OffsetDateTime>
-   @FXML lateinit var date3Column: TableColumn<DateItem, OffsetDateTime>
-
+   @FXML lateinit var dateObjectColumn: TableColumn<DateItem, OffsetDateTime>
+   @FXML lateinit var dateCustomColumn: TableColumn<DateItem, OffsetDateTime>
+   @FXML lateinit var dateCustomColumn2: TableColumn<DateItem, OffsetDateTime>
+   @FXML lateinit var dateLambdaColumn: TableColumn<DateItem, OffsetDateTime>
+   
    val model: ObservableList<DateItem> = FXCollections.observableArrayList<DateItem>()
 
    @FXML
    fun initialize() {
       dateView.items = model
       labelColumn.cellValueFactory = PropertyValueFactory<DateItem, String>("label")
-      dateStringColumn.cellValueFactory = PropertyValueFactory<DateItem, String>("date1")
-      date2Column.cellValueFactory = PropertyValueFactory<DateItem, OffsetDateTime>("date2")
-      date3Column.cellValueFactory = PropertyValueFactory<DateItem, OffsetDateTime>("date3")
 
+      // cannot do much with this - string limits choices
+      dateStringColumn.cellValueFactory = PropertyValueFactory<DateItem, String>("date")
+
+      dateObjectColumn.cellValueFactory = PropertyValueFactory<DateItem, OffsetDateTime>("date")
+      dateObjectColumn.cellFactory = DateCellFactory1()
+
+      dateCustomColumn.cellValueFactory = DateCellValueFactory()
+      dateCustomColumn.cellFactory = DateCellFactory2()
+      
+      // Offset date by 10 seconds
+      dateCustomColumn2.cellValueFactory = DateOffsetCellValueFactory(10)
+      dateCustomColumn2.cellFactory = DateCellFactory2()
+
+      // Use Lambda Cell Factory
+      dateLambdaColumn.setCellValueFactory { cell: TableColumn.CellDataFeatures<DateItem, OffsetDateTime> -> ReadOnlyObjectWrapper(cell.value.date) }
+      dateLambdaColumn.setCellFactory {
+         object : TableCell<DateItem, OffsetDateTime>() {
+            public override fun updateItem(dt: OffsetDateTime?, empty: Boolean) {
+               super.updateItem(dt, empty)
+               if (!empty)
+                  this.text = "Lambda - $dt"
+            }
+         }
+      }
       addItems()
    }
 
@@ -66,13 +92,13 @@ class ApplicationController {
     * Add items to table
     */
    private fun addItems() {
-      var item = DateItem("Green Tree", createDate(2018, 2, 3), createDate(2018, 4, 12), createDate(2018, 8, 21))
+      var item = DateItem("Green Tree", createDate(2018, 2, 3))
       model.add(item)
-      item = DateItem("Red Car", createDate(2017, 5, 19), createDate(2017, 3, 15), createDate(2017, 12, 21))
+      item = DateItem("Red Car", createDate(2017, 5, 19))
       model.add(item)
-      item = DateItem("Blue Ship", createDate(2016, 12, 19), createDate(2016, 6, 2), createDate(2017, 7, 28))
+      item = DateItem("Blue Ship", createDate(2016, 12, 19))
       model.add(item)
-      item = DateItem("Yellow Moon", createDate(1990, 4, 4), createDate(1990, 1, 2), createDate(1990, 3, 11))
+      item = DateItem("Yellow Moon", createDate(1990, 4, 4))
       model.add(item)
    }
 
