@@ -14,6 +14,7 @@ The list of demo apps includes:
   * **Application 1** -  Basic JavaFX/Kotlin Application
   * **Application 2** -  Drag and Drop
   * **Application 3** -  Nested Controllers, Event Based using Google EventBus
+  * **Application 4** -  TableView Cell Value Factories vs Cell Factories
   
   
 My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
@@ -115,12 +116,12 @@ Start the application with:
 
     gradlew runApp3    
 
-### What's Next ?
 
-Some of things I am thinking of, in no particular order:
-* More advanced CSS Styling
-* TableColumn CellValueFactories for complex objects
-* Using asynchronous events to store application UI state (if you are sick of constantly opening and resizing dialogs)
-* TornadoFX
-  
+#### Application 4 - TableView Cell Factories vs Cell Value Factories
 
+* Examples of different Cell Value and Cell Factories in Kotlin
+* FXML based UI
+
+Start the application with:
+
+    gradlew runApp4

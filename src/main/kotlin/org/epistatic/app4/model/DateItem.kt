@@ -1,4 +1,4 @@
-package org.epistatic.app5.model
+package org.epistatic.app4.model
 
 import java.time.OffsetDateTime
 

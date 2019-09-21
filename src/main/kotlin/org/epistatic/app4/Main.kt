@@ -23,10 +23,7 @@ import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.scene.layout.GridPane
-import javafx.scene.layout.Pane
 import javafx.stage.Stage
-import org.epistatic.app4.controller.Child1Controller
-import org.epistatic.app4.controller.NestedController
 
 /**
  * An Application with multiple controllers and nested FXML
@@ -38,30 +35,13 @@ import org.epistatic.app4.controller.NestedController
  */
 class Main : Application() {
 
-   lateinit var controller:NestedController
-   
    @Throws(Exception::class)
    override fun start(primaryStage: Stage) {
-      controller = NestedController()
-      loadChildController(controller)
-      val root = loadAppController()
-      primaryStage.title = "Nested Controllers"
+      val loader = FXMLLoader(javaClass.getResource("/app4/app4.fxml"))
+      val root = loader.load<GridPane>()
+      primaryStage.title = "TableView Cell Factories"
       primaryStage.scene = Scene(root, 750.0, 550.0)
       primaryStage.show()
-   }
-
-   private fun loadAppController(): Pane {
-      val loader = FXMLLoader(javaClass.getResource("/app4/app4.fxml"))
-      loader.setController(controller)
-      return loader.load<GridPane>()
-   }
-
-   private fun loadChildController(parent:NestedController): Pane {
-      val controller = Child1Controller()
-      parent.child1Controller = controller
-      val loader = FXMLLoader(javaClass.getResource("/app4/child1.fxml"))
-      loader.setController(controller)
-      return loader.load<GridPane>()
    }
 
    companion object {

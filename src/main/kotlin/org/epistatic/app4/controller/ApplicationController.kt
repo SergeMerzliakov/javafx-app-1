@@ -1,4 +1,4 @@
-package org.epistatic.app5.controller
+package org.epistatic.app4.controller
 
 import javafx.beans.property.ReadOnlyObjectWrapper
 import javafx.collections.FXCollections
@@ -10,7 +10,7 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.cell.PropertyValueFactory
 import javafx.stage.Stage
-import org.epistatic.app5.model.DateItem
+import org.epistatic.app4.model.DateItem
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
 
@@ -35,7 +35,7 @@ import java.time.ZoneOffset
  **/
 
 /**
- * Controller for app5/app5.fxml. Manages the main UI and all the other controllers
+ * Controller for app5/app4.fxml
  */
 class ApplicationController {
 
