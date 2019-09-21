@@ -68,7 +68,7 @@ class ApplicationController {
       dateCustomColumn2.cellValueFactory = DateOffsetCellValueFactory(40)
       dateCustomColumn2.cellFactory = CustomDateCellFactory()
 
-      // Use Lambda factories as lambdas
+      // Use Lambda to create factories
       dateLambdaColumn.setCellValueFactory { cell: TableColumn.CellDataFeatures<DateItem, OffsetDateTime> -> ReadOnlyObjectWrapper(cell.value.date) }
       dateLambdaColumn.setCellFactory {
          object : TableCell<DateItem, OffsetDateTime>() {
