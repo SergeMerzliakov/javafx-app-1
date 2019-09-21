@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter
 /**
  * Sets cell's text to be a formatted date
  */
-class DateCellFactory1 : Callback<TableColumn<DateItem, OffsetDateTime>, TableCell<DateItem, OffsetDateTime>> {
+class ModifiedISODateCellFactory : Callback<TableColumn<DateItem, OffsetDateTime>, TableCell<DateItem, OffsetDateTime>> {
 
    companion object {
       private val customFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd => HH:mm:ss")
