@@ -59,14 +59,14 @@ class ApplicationController {
       dateStringColumn.cellValueFactory = PropertyValueFactory<DateItem, String>("date")
 
       dateObjectColumn.cellValueFactory = PropertyValueFactory<DateItem, OffsetDateTime>("date")
-      dateObjectColumn.cellFactory = DateCellFactory1()
+      dateObjectColumn.cellFactory = ModifiedISODateCellFactory()
 
       dateCustomColumn.cellValueFactory = DateCellValueFactory()
-      dateCustomColumn.cellFactory = DateCellFactory2()
+      dateCustomColumn.cellFactory = ModifiedISODateCellFactory()
       
       // Offset date by 10 seconds
       dateCustomColumn2.cellValueFactory = DateOffsetCellValueFactory(40)
-      dateCustomColumn2.cellFactory = DateCellFactory2()
+      dateCustomColumn2.cellFactory = CustomDateCellFactory()
 
       // Use Lambda factories as lambdas
       dateLambdaColumn.setCellValueFactory { cell: TableColumn.CellDataFeatures<DateItem, OffsetDateTime> -> ReadOnlyObjectWrapper(cell.value.date) }
