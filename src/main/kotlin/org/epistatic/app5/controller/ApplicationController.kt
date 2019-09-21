@@ -65,10 +65,10 @@ class ApplicationController {
       dateCustomColumn.cellFactory = DateCellFactory2()
       
       // Offset date by 10 seconds
-      dateCustomColumn2.cellValueFactory = DateOffsetCellValueFactory(10)
+      dateCustomColumn2.cellValueFactory = DateOffsetCellValueFactory(40)
       dateCustomColumn2.cellFactory = DateCellFactory2()
 
-      // Use Lambda Cell Factory
+      // Use Lambda factories as lambdas
       dateLambdaColumn.setCellValueFactory { cell: TableColumn.CellDataFeatures<DateItem, OffsetDateTime> -> ReadOnlyObjectWrapper(cell.value.date) }
       dateLambdaColumn.setCellFactory {
          object : TableCell<DateItem, OffsetDateTime>() {
@@ -79,6 +79,7 @@ class ApplicationController {
             }
          }
       }
+      
       addItems()
    }
 

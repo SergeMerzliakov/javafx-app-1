@@ -7,6 +7,9 @@ import org.epistatic.app5.model.DateItem
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
+/**
+ * Sets cell's text to be another formatted date
+ */
 class DateCellFactory2 : Callback<TableColumn<DateItem, OffsetDateTime>, TableCell<DateItem, OffsetDateTime>> {
 
    companion object {
