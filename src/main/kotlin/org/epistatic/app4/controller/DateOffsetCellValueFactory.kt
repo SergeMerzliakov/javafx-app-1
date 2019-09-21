@@ -8,15 +8,14 @@ import org.epistatic.app4.model.DateItem
 import java.time.OffsetDateTime
 
 /**
- * A Cell Value Factory which uses stateful data to alter the cell value
+ * A Cell Value Factory which uses stateful data to alter the cells date value by a number of days
  */
-class DateOffsetCellValueFactory(private val offsetSeconds: Long) : Callback<TableColumn.CellDataFeatures<DateItem, OffsetDateTime>, ObservableValue<OffsetDateTime>> {
+class DateOffsetCellValueFactory(private val offsetDays: Long) : Callback<TableColumn.CellDataFeatures<DateItem, OffsetDateTime>, ObservableValue<OffsetDateTime>> {
 
    override fun call(p: TableColumn.CellDataFeatures<DateItem, OffsetDateTime>): ObservableValue<OffsetDateTime> {
       return if (p.value != null) {
-         ReadOnlyObjectWrapper(p.value.date.plusSeconds(offsetSeconds))
+         ReadOnlyObjectWrapper(p.value.date.plusDays(offsetDays))
       } else {
-         // only objects have a modified attribute as far as I know now
          ReadOnlyObjectWrapper()
       }
    }
