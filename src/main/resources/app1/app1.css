@@ -9,3 +9,8 @@
     -fx-font: 14px "Arial";
     -fx-text-fill: black;
 }
+
+.table-column {
+    -fx-alignment: center;
+}
+
