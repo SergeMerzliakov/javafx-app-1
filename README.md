@@ -31,7 +31,7 @@ All the code samples are not meant to be production quality and I use the follow
 You will need to install:
 
 * Java 11 or 12 SDK (Oracle or Open JDK)
-* [OpenJFX 12](https://gluonhq.com/products/javafx/)
+* [OpenJFX 11,12 or 13](https://gluonhq.com/products/javafx/)
 
 If you want to edit FXML and keep your sanity:
 
@@ -49,15 +49,14 @@ Gradle is bundled as part of the project - no need to install anything.
 
 *The projects does NOT need Gradle to be installed as this is included inside the project via a gradle wrapper*
 
-##### Set JFX_INSTALL variable in build.gradle file
+##### Set JFX_VERSION and JFX_INSTALL variable Values in build.gradle file
 
 Find the section in the build.gradle:
 
     
     // BEGIN YOUR SETUP
-
-    def JFX_INSTALL =  ** YOUR JFX_INSTALL DIR HERE ** 
-
+        def JFX_VERSION = "13" // or "12" or "11"
+        def JFX_INSTALL =  ** YOUR JFX_INSTALL DIR HERE ** 
     // END YOUR SETUP
 
 and update the JFX_INSTALL value with your OpenJFX install directory.

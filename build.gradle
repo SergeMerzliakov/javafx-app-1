@@ -6,7 +6,8 @@ plugins {
 def KOTLIN_VERSION = "1.3.50"
 def JAVA_HOME = System.properties['java.home']
 
-// BEGIN YOUR SETUP  // e.g. /libs/javafx/13.0
+// BEGIN YOUR SETUP  - set location of JFX 13 (or older version)
+def JFX_VERSION = "13"
 def JFX_INSTALL = '/Library/Java/javafx/13.0'
 // END YOUR SETUP
 
@@ -24,6 +25,7 @@ apply plugin: 'application'
 mainClassName = 'org.epistatic.app1.Main'
 
 javafx {
+    version = JFX_VERSION
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
