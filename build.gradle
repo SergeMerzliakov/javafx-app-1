@@ -113,7 +113,7 @@ task collateInstall(type:Copy){
 
 task listModules(type: Exec) {
     workingDir '.'
-    commandLine "${JAVA_HOME}/bin/jdeps", '-s', '--module-path', "${JFX_INSTALL}/lib", '--class-path', 'installBuild/lib/*','-recursive', "installBuild/${jar.baseName}-${version}.jar"
+    commandLine "${JAVA_HOME}/bin/jdeps", '-s', '--module-path', "${JFX_INSTALL}/lib", '--class-path', 'installBuild/lib/*', "installBuild/${jar.baseName}-${version}.jar"
 }
 
 task buildRuntime(type: Exec) {
