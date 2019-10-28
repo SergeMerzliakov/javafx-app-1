@@ -28,8 +28,6 @@ import javafx.stage.Stage
  */
 abstract class CustomDialog<T>(ownerStage: Stage, title: String) {
 
-   private var result: T? = null
-
    var stage: Stage = Stage()
 
    init {
