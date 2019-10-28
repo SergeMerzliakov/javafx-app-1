@@ -31,7 +31,7 @@ All the code samples are not meant to be production quality and I use the follow
 ### Install
 You will need to install:
 
-* Java 11 or 12 SDK (Oracle or Open JDK)
+* Java 11, 12 or 13 SDK (Oracle or Open JDK)
 * [OpenJFX 11,12 or 13](https://gluonhq.com/products/javafx/)
 
 If you want to edit FXML and keep your sanity:
