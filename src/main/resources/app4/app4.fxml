@@ -40,6 +40,5 @@
             </TableView>
          </children>
       </AnchorPane>
-       
    </children>
 </GridPane>

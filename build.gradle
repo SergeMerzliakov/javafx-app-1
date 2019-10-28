@@ -12,10 +12,11 @@ def JFX_INSTALL = '/Library/Java/javafx/13.0'
 // END YOUR SETUP
 
 group 'org.epistatic'
-version '1.1.0'
+version '2.2.0'
 
 repositories {
     mavenCentral()
+    jcenter()
     flatDir {
         dirs "${JFX_INSTALL}/lib"
     }
@@ -90,6 +91,19 @@ task runApp4(type: JavaExec) {
     description = "Runs Application 4 - Table View Cell Factories"
     classpath sourceSets.main.runtimeClasspath
     main = 'org.epistatic.app4.Main'
+    doFirst {
+        jvmArgs = [
+                '--module-path', "${JFX_INSTALL}/lib",
+                '--add-modules', 'javafx.fxml,javafx.controls'
+        ]
+    }
+}
+
+task runApp5(type: JavaExec) {
+    group = "Application"
+    description = "Runs Application 5 - Custom Dialog Demo"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app5.Main'
     doFirst {
         jvmArgs = [
                 '--module-path', "${JFX_INSTALL}/lib",

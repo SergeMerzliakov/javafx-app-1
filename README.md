@@ -15,6 +15,7 @@ The list of demo apps includes:
   * **Application 2** -  Drag and Drop
   * **Application 3** -  Nested Controllers, Event Based using Google EventBus
   * **Application 4** -  TableView Cell Value Factories vs Cell Factories
+  * **Application 5** -  Custom Dialogs, an alternative to JavaFX official approach
   
   
 My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
@@ -125,3 +126,11 @@ Start the application with:
 
     gradlew runApp4
 
+#### Application 5 - Custom Dialogs
+
+* Simple, alternative custom dialog framework (2 classes!!) for creating custom dialogs 
+* FXML based UI
+
+Start the application with:
+
+    gradlew runApp5

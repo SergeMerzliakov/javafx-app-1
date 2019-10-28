@@ -1,20 +1,3 @@
-package org.epistatic.app4.controller
-
-import javafx.beans.property.ReadOnlyObjectWrapper
-import javafx.collections.FXCollections
-import javafx.collections.ObservableList
-import javafx.fxml.FXML
-import javafx.scene.control.Button
-import javafx.scene.control.TableCell
-import javafx.scene.control.TableColumn
-import javafx.scene.control.TableView
-import javafx.scene.control.cell.PropertyValueFactory
-import javafx.stage.Stage
-import org.epistatic.app4.model.DateItem
-import java.time.OffsetDateTime
-import java.time.ZoneOffset
-
-
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -34,8 +17,25 @@ import java.time.ZoneOffset
  * under the License.
  **/
 
+package org.epistatic.app4.controller
+
+import javafx.beans.property.ReadOnlyObjectWrapper
+import javafx.collections.FXCollections
+import javafx.collections.ObservableList
+import javafx.fxml.FXML
+import javafx.scene.control.Button
+import javafx.scene.control.TableCell
+import javafx.scene.control.TableColumn
+import javafx.scene.control.TableView
+import javafx.scene.control.cell.PropertyValueFactory
+import javafx.stage.Stage
+import org.epistatic.app4.model.DateItem
+import java.time.OffsetDateTime
+import java.time.ZoneOffset
+
+
 /**
- * Controller for app5/app4.fxml
+ * Controller for app4/app4.fxml
  */
 class ApplicationController {
 
