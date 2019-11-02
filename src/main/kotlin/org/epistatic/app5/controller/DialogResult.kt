@@ -19,4 +19,4 @@
 
 package org.epistatic.app5.controller
 
-class DialogResult<T>(val ok: Boolean, val data: T)
+class DialogResult<T>(val ok: Boolean, val data: T?)

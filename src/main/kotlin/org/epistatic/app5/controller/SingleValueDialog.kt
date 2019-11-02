@@ -44,6 +44,6 @@ class SingleValueDialog(ownerStage: Stage, label: String, title: String, default
       val v = controller.getValue()
       if (v != null)
          return DialogResult(true, v)
-      return DialogResult(false, "")
+      return DialogResult(false, null)
    }
 }
