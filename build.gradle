@@ -112,6 +112,11 @@ task runApp5(type: JavaExec) {
     }
 }
 
+task libs(type: Sync) {
+    from configurations.runtime
+    into "$buildDir/deplibs"
+}
+
 task collateInstall(type:Copy){
     delete "installBuild"
     mkdir "installBuild/lib"
