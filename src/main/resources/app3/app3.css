@@ -1,10 +1,10 @@
-.file-info-label{
+.file-info-label {
     -fx-border-color: #c1c5fe;
     -fx-border-insets: 2px;
     -fx-border-style: solid;
 }
 
-.file-data-content{
+.file-data-content {
     -fx-font-family: Consolas;
     -fx-font-size: 12px;
 }

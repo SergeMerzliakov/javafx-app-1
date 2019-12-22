@@ -1,198 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<VBox prefHeight="600.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.epistatic.app1.controller.Controller">
-   <children>
-      <TabPane maxHeight="1.7976931348623157E308" prefWidth="590.0" VBox.vgrow="ALWAYS">
-         <tabs>
-            <Tab id="fieldTab" fx:id="fieldTab" text="Fields">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <GridPane hgap="8.0" layoutX="14.0" layoutY="73.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" vgrow="NEVER" />
-                            <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER" />
-                              <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER" />
-                              <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER" />
-                              <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER" />
-                              <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Build a URL" GridPane.columnSpan="3" GridPane.halignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Scheme" GridPane.rowIndex="1" />
-                              <Label text="Host" GridPane.rowIndex="2" />
-                              <Label text="Port" GridPane.rowIndex="3" />
-                              <ComboBox id="schemeCombo" fx:id="schemeCombo" prefWidth="150.0" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField id="hostField" fx:id="hostField" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-                                 <GridPane.margin>
-                                    <Insets right="8.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                              <TextField id="portField" fx:id="portField" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="Generated URL" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
-                                 <padding>
-                                    <Insets bottom="4.0" />
-                                 </padding>
-                              </Label>
-                              <Label id="urlLabel" fx:id="urlLabel" maxWidth="1.7976931348623157E308" minHeight="30.0" styleClass="sunken-label" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                                 <GridPane.margin>
-                                    <Insets left="8.0" right="8.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Button id="generateUrlButton" fx:id="generateUrlButton" mnemonicParsing="false" onAction="#generateUrlClicked" text="Generate URL" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-                                 <GridPane.margin>
-                                    <Insets right="8.0" />
-                                 </GridPane.margin>
-                              </Button>
-                           </children>
+<?import java.net.URL?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/11.0.1"
+      fx:controller="org.epistatic.app1.controller.Controller">
+    <children>
+        <TabPane maxHeight="1.7976931348623157E308" prefWidth="590.0" VBox.vgrow="ALWAYS">
+            <tabs>
+                <Tab id="fieldTab" fx:id="fieldTab" text="Fields">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane hgap="8.0" layoutX="14.0" layoutY="73.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0"
+                                          AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="65.0" minWidth="65.0" prefWidth="65.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" vgrow="NEVER"/>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER"/>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER"/>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER"/>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER"/>
+                                        <RowConstraints maxHeight="36.0" minHeight="36.0" prefHeight="36.0" valignment="CENTER" vgrow="NEVER"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Build a URL" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Scheme" GridPane.rowIndex="1"/>
+                                        <Label text="Host" GridPane.rowIndex="2"/>
+                                        <Label text="Port" GridPane.rowIndex="3"/>
+                                        <ComboBox id="schemeCombo" fx:id="schemeCombo" prefWidth="150.0" visibleRowCount="3" GridPane.columnIndex="1"
+                                                  GridPane.rowIndex="1"/>
+                                        <TextField id="hostField" fx:id="hostField" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                                                   GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets right="8.0"/>
+                                            </GridPane.margin>
+                                        </TextField>
+                                        <TextField id="portField" fx:id="portField" maxWidth="70.0" minWidth="70.0" prefWidth="70.0"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                        <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="Generated URL" GridPane.columnIndex="1"
+                                               GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+                                            <padding>
+                                                <Insets bottom="4.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label id="urlLabel" fx:id="urlLabel" maxWidth="1.7976931348623157E308" minHeight="30.0"
+                                               styleClass="sunken-label" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                                               GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="8.0" right="8.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Button id="generateUrlButton" fx:id="generateUrlButton" mnemonicParsing="false"
+                                                onAction="#generateUrlClicked" text="Generate URL" GridPane.columnIndex="2"
+                                                GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                                            <GridPane.margin>
+                                                <Insets right="8.0"/>
+                                            </GridPane.margin>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="listTab" fx:id="listTab" text="List">
+                    <content>
+                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
+                                  prefWidth="400.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="48.0" valignment="CENTER" vgrow="NEVER"/>
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <FlowPane alignment="CENTER_LEFT" hgap="8.0" maxHeight="40.0" prefHeight="40.0" prefWidth="200.0"
+                                          GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                    <children>
+                                        <Label text="Enter New Item">
+                                            <FlowPane.margin>
+                                                <Insets left="10.0"/>
+                                            </FlowPane.margin>
+                                        </Label>
+                                        <TextField id="enterItemField" fx:id="newItemField" maxWidth="1.7976931348623157E308">
+                                            <FlowPane.margin>
+                                                <Insets right="10.0"/>
+                                            </FlowPane.margin>
+                                        </TextField>
+                                        <Button id="addItemButton" mnemonicParsing="false" onAction="#addItem" text="Add To List">
+                                            <FlowPane.margin>
+                                                <Insets right="10.0"/>
+                                            </FlowPane.margin>
+                                        </Button>
+                                    </children>
+                                </FlowPane>
+                                <Label alignment="CENTER" text="My Items" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+                                       GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                                <ListView id="itemListView" fx:id="itemListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2"
+                                          GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                    <GridPane.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                    </GridPane.margin>
+                                </ListView>
+                            </children>
                         </GridPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-           <Tab id="listTab" fx:id="listTab" text="List">
-               <content>
-                  <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="48.0" valignment="CENTER" vgrow="NEVER" />
-                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <FlowPane alignment="CENTER_LEFT" hgap="8.0" maxHeight="40.0" prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-                           <children>
-                              <Label text="Enter New Item">
-                                 <FlowPane.margin>
-                                    <Insets left="10.0" />
-                                 </FlowPane.margin>
-                              </Label>
-                             <TextField id="enterItemField" fx:id="newItemField" maxWidth="1.7976931348623157E308">
-                                 <FlowPane.margin>
-                                    <Insets right="10.0" />
-                                 </FlowPane.margin>
-                              </TextField>
-                             <Button id="addItemButton" mnemonicParsing="false" onAction="#addItem" text="Add To List">
-                                 <FlowPane.margin>
-                                    <Insets right="10.0" />
-                                 </FlowPane.margin>
-                              </Button>
-                           </children>
-                        </FlowPane>
-                        <Label alignment="CENTER" text="My Items" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                       <ListView id="itemListView" fx:id="itemListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
-                           <GridPane.margin>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                           </GridPane.margin>
-                        </ListView>
-                     </children>
-                  </GridPane>
-               </content>
-            </Tab>
-           <Tab id="basicTableTab" fx:id="basicTableTab" text="Basic TableView">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <GridPane maxHeight="40.0" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Some Table Items" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                             <TableView id="propertyTableView" fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                                <columns>
-                                  <TableColumn fx:id="propertyColumn" prefWidth="75.0" text="Property" />
-                                  <TableColumn fx:id="valueColumn" prefWidth="75.0" text="Value" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab id="sortedTableTab" fx:id="sortedTableTab" text="Sorted Table View">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView id="historicalView" fx:id="historicalView" layoutX="51.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <columns>
-                            <TableColumn fx:id="nameColumn" editable="false" prefWidth="75.0" text="Name" />
-                              <TableColumn fx:id="yearsColumn" editable="false" prefWidth="75.0" text="Years Lived" />
-                            <TableColumn fx:id="occupationColumn" editable="false" prefWidth="75.0" text="Occupation" />
-                              <TableColumn fx:id="birthColumn" editable="false" prefWidth="75.0" text="Date of Birth" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-         </tabs>
-         <VBox.margin>
-            <Insets bottom="50.0" />
-         </VBox.margin>
-      </TabPane>
-      <AnchorPane maxHeight="50.0" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="0.0" prefWidth="602.0" VBox.vgrow="NEVER">
-         <children>
-           <Button id="closeButton" layoutX="314.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="12.0" />
-            <Button mnemonicParsing="false" onAction="#addPerson" text="Add Person" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
-             <Button mnemonicParsing="false" onAction="#clearPeople" text="Clear List" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="120.0" />
-         </children>
-      </AnchorPane>
-   </children>
-   <stylesheets>
-      <URL value="@../bootstrap3.css" />
-      <URL value="@app1.css" />
-   </stylesheets>
+                    </content>
+                </Tab>
+                <Tab id="basicTableTab" fx:id="basicTableTab" text="Basic TableView">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane maxHeight="40.0" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Some Table Items" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <TableView id="propertyTableView" fx:id="tableView" prefHeight="200.0" prefWidth="200.0"
+                                                   GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                            <columns>
+                                                <TableColumn fx:id="propertyColumn" prefWidth="75.0" text="Property"/>
+                                                <TableColumn fx:id="valueColumn" prefWidth="75.0" text="Value"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="sortedTableTab" fx:id="sortedTableTab" text="Sorted Table View">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView id="historicalView" fx:id="historicalView" layoutX="51.0" layoutY="20.0" prefHeight="200.0"
+                                           prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                           AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="nameColumn" editable="false" prefWidth="75.0" text="Name"/>
+                                        <TableColumn fx:id="yearsColumn" editable="false" prefWidth="75.0" text="Years Lived"/>
+                                        <TableColumn fx:id="occupationColumn" editable="false" prefWidth="75.0" text="Occupation"/>
+                                        <TableColumn fx:id="birthColumn" editable="false" prefWidth="75.0" text="Date of Birth"/>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+            <VBox.margin>
+                <Insets bottom="50.0"/>
+            </VBox.margin>
+        </TabPane>
+        <AnchorPane maxHeight="50.0" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="0.0" prefWidth="602.0" VBox.vgrow="NEVER">
+            <children>
+                <Button id="closeButton" layoutX="314.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeApplication" text="Close"
+                        AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="12.0"/>
+                <Button mnemonicParsing="false" onAction="#addPerson" text="Add Person" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"/>
+                <Button mnemonicParsing="false" onAction="#clearPeople" text="Clear List" AnchorPane.bottomAnchor="10.0"
+                        AnchorPane.leftAnchor="120.0"/>
+            </children>
+        </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@../bootstrap3.css"/>
+        <URL value="@app1.css"/>
+    </stylesheets>
 </VBox>
