@@ -130,6 +130,12 @@ task listModules(type: Exec) {
     commandLine "${JAVA_HOME}/bin/jdeps", '-s', '--module-path', "${JFX_INSTALL}/lib", '--class-path', 'installBuild/lib/*', "installBuild/${jar.baseName}-${version}.jar"
 }
 
+// Used to create installers only
+task libs(type: Sync) {
+    from configurations.runtime
+    into "$buildDir/deplibs"
+}
+
 task buildRuntime(type: Exec) {
     delete("installBuild/jre")
     def DEP_LIST = file('dependencies.txt').text
