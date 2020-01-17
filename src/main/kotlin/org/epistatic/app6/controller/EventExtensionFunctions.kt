@@ -18,7 +18,7 @@ package org.epistatic.app6.controller
 import javafx.scene.control.Control
 
 /**
- * Add onFocusLost method to all JavaFx controls
+ * Add onFocusLost method to all JavaFx Controls
  */
 fun Control.onFocusLost(handler: (f: Control) -> Unit) {
    focusedProperty()

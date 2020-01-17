@@ -112,6 +112,19 @@ task runApp5(type: JavaExec) {
     }
 }
 
+task runApp6(type: JavaExec) {
+    group = "Application"
+    description = "Runs Application 6 - Event Handlers"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app6.Main'
+    doFirst {
+        jvmArgs = [
+                '--module-path', "${JFX_INSTALL}/lib",
+                '--add-modules', 'javafx.fxml,javafx.controls'
+        ]
+    }
+}
+
 task collateInstall(type:Copy){
     delete "installBuild"
     mkdir "installBuild/lib"

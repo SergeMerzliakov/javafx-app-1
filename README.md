@@ -16,6 +16,7 @@ The list of demo apps includes:
   * **Application 3** -  Nested Controllers, Event Based using Google EventBus
   * **Application 4** -  TableView Cell Value Factories vs Cell Factories
   * **Application 5** -  Custom Dialogs, an alternative to JavaFX official approach
+  * **Application 6** -  Event Handling with helper and extension functions
   
   
 My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
@@ -134,3 +135,13 @@ Start the application with:
 Start the application with:
 
     gradlew runApp5
+
+
+#### Application 6 - Event Handlers
+
+* Add Kotlin style helper functions for adding event listeners to controls 
+* Add Kotlin extension functions to the controls themselves for adding event listeners
+
+Start the application with:
+
+    gradlew runApp6

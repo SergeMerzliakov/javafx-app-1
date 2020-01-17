@@ -18,14 +18,11 @@ package org.epistatic.app6.controller
 
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
-import javafx.scene.control.Alert
-import javafx.scene.control.Button
-import javafx.scene.control.ComboBox
-import javafx.scene.control.TextField
+import javafx.scene.control.*
 import javafx.stage.Stage
 
 /**
- * Controller for app6 - Event Handler
+ * Controller for app6 - Event Handlers
  */
 class ApplicationController {
 
@@ -33,24 +30,44 @@ class ApplicationController {
    @FXML private lateinit var textFieldExtension: TextField
    @FXML private lateinit var textFieldWrapper: TextField
    @FXML private lateinit var colourCombo: ComboBox<String>
-
-   val comboModel = FXCollections.observableArrayList<String>()
+   @FXML private lateinit var animalListView: ListView<String>
+   @FXML private lateinit var animalLabel: Label
+   
+   private val comboModel = FXCollections.observableArrayList<String>()
+   private val listModel = FXCollections.observableArrayList<String>()
 
    @FXML
    fun initialize() {
+      initializeFields()
+      initializeCombo()
+      initializeListView()
+   }
+
+   private fun initializeFields() {
       // method 1 - call extension function
       textFieldExtension.onFocusLost { showDialog("Focus Lost", "textField1 Lost Focus.\n[Called extension function - onFocusLost]") }
 
       // method 2 - call simple wrapper function
       EventWrapper.onFocusLost(textFieldWrapper) { showDialog("Focus Lost", "textField2 Lost Focus.\n[Called Wrapper - EventHandler.onFocusLost]") }
-
+   }
+   
+   private fun initializeCombo() {
       comboModel.add("Blue")
       comboModel.add("Green")
       comboModel.add("Yellow")
-      colourCombo.items = comboModel
+      colourCombo.items = comboModel.sorted()
       colourCombo.selectionModel.select(0)
 
-      EventWrapper.onComboSelectionChanged(colourCombo) { cb -> showDialog("Selection Changed", "Colour is now ${cb.selectionModel.selectedItem}") }
+      EventWrapper.onSelectionChanged(colourCombo) { cb -> showDialog("Selection Changed", "Colour is now ${cb.selectionModel.selectedItem}") }
+   }
+
+   private fun initializeListView() {
+      listModel.add("Tiger")
+      listModel.add("Whale")
+      listModel.add("Chicken")
+      animalListView.items = listModel.sorted()
+
+      EventWrapper.onSelectionChanged(animalListView) { view -> animalLabel.text = "Selected Animal is a ${view.selectionModel.selectedItem}" }
    }
 
    @FXML

@@ -17,6 +17,7 @@ package org.epistatic.app6.controller
 
 import javafx.scene.control.ComboBox
 import javafx.scene.control.Control
+import javafx.scene.control.ListView
 
 /**
  * Wrapper functions around event listeners
@@ -37,10 +38,26 @@ object EventWrapper {
    /**
     * Invoke given function on change of selection
     *
-    * SelectionModel is not in any shared base class - all relevant controls just
-    * have as a member. So we have a function here for ComboBoxes, but not ListViews
+    * SelectionModel is not in any shared base class (ie. no class like SelectableControl). 
+    * All relevant controls just implement it as a member. So we have a function 
+    * here specifically for ComboBoxes
     */
-   fun onComboSelectionChanged(f: ComboBox<*>, handler: (f: ComboBox<*>) -> Unit) {
+   fun onSelectionChanged(f: ComboBox<*>, handler: (f: ComboBox<*>) -> Unit) {
+      f.selectionModel.selectedIndexProperty()
+            .addListener { _, old, new ->
+               if (old != new)
+                  handler(f)
+            }
+   }
+
+   /**
+    * Invoke given function on change of selection
+    *
+    * SelectionModel is not in any shared base class (ie. no class like SelectableControl).
+    * All relevant controls just implement it as a member. So we have a function
+    * here specifically for ListViews
+    */
+   fun onSelectionChanged(f: ListView<*>, handler: (f: ListView<*>) -> Unit) {
       f.selectionModel.selectedIndexProperty()
             .addListener { _, old, new ->
                if (old != new)

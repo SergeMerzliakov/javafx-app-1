@@ -37,7 +37,7 @@ class Main : Application() {
       val loader = FXMLLoader(javaClass.getResource("/app6/app6.fxml"))
       val root = loader.load<Pane>()
       primaryStage.title = "Event Handling Demo"
-      primaryStage.scene = Scene(root, 400.0, 200.0)
+      primaryStage.scene = Scene(root)
       primaryStage.show()
    }
 
