@@ -23,13 +23,8 @@ import javafx.scene.layout.GridPane
 import javafx.stage.Stage
 
 /**
- * An Application with multiple controllers and nested FXML
- *
- *   1) Assigning controllers to FXML at runtime
- *   2) Multiple controllers communicating via Events (via Google EventBus)
- *   3) Dragging Items from the Desktop
- *   4) Controllers can leverage dependency injection, improving testing options
- */
+ * An Application which demonstrates cell/value factories
+ **/
 class Main : Application() {
 
    @Throws(Exception::class)
