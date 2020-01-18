@@ -45,10 +45,10 @@ class ApplicationController {
 
    private fun initializeFields() {
       // method 1 - call extension function
-      textFieldExtension.onFocusLost { showDialog("Focus Lost", "textField1 Lost Focus.\n[Called extension function - onFocusLost]") }
+      textFieldExtension.onFocusLost { f->  showDialog("Focus Lost", "${textFieldExtension.id} Lost Focus.\n[Called extension function - onFocusLost]") }
 
       // method 2 - call simple wrapper function
-      EventWrapper.onFocusLost(textFieldWrapper) { showDialog("Focus Lost", "textField2 Lost Focus.\n[Called Wrapper - EventHandler.onFocusLost]") }
+      EventWrapper.onFocusLost(textFieldWrapper) { f -> showDialog("Focus Lost", "${textFieldWrapper.id} Lost Focus.\n[Called Wrapper - EventHandler.onFocusLost]") }
    }
    
    private fun initializeCombo() {
