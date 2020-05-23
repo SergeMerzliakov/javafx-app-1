@@ -40,27 +40,6 @@ class NoTestFXTest {
 		}
 	}
 
-	/**
-	 * Does not required to be run from JavaFX application thread
-	 */
-	@Test
-	fun basicTestOnMainThread() {
-		// when
-		val ap = AnchorPane()
-		val label = Label("Empty")
-		ap.children.add(label)
-		val button = Button("OK")
-		ap.children.add(button)
-		AnchorPane.setTopAnchor(label, 10.0)
-
-		// then
-		val button2 = ap.children.find { it is Button } as Button
-		assertThat(button2.text).isEqualTo("OK")
-
-		val label2 = ap.children.find { it is Label } as Label
-		assertThat(label2.text).isEqualTo("Empty")
-	}
-
 
 	/**
 	 * More common case, and generally safer, as it's often hard to tell
@@ -90,12 +69,32 @@ class NoTestFXTest {
 
 		// then
 		FXBlock(Runnable {
-			assertThat(ap).isInstanceOf(AnchorPane::class.java)
 			val button = ap.children.find { it is Button } as Button
 			button.fire()
 
 			val label = ap.children.find { it is Label } as Label
 			assertThat(label.text).isEqualTo("button clicked")
 		}).run()
+	}
+
+	/**
+	 * Does not required to be run from JavaFX application thread
+	 */
+	@Test
+	fun basicTestOnMainThread() {
+		// when
+		val ap = AnchorPane()
+		val label = Label("Empty")
+		ap.children.add(label)
+		val button = Button("OK")
+		ap.children.add(button)
+		AnchorPane.setTopAnchor(label, 10.0)
+
+		// then
+		val button2 = ap.children.find { it is Button } as Button
+		assertThat(button2.text).isEqualTo("OK")
+
+		val label2 = ap.children.find { it is Label } as Label
+		assertThat(label2.text).isEqualTo("Empty")
 	}
 }
