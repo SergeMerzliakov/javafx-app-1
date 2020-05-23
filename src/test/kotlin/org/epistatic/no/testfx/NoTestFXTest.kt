@@ -58,8 +58,8 @@ class NoTestFXTest {
 
 			val label = Label("Empty")
 			ap.children.add(label)
-			val button = Button("OK")
 
+			val button = Button("OK")
 			button.onAction = EventHandler { label.text = "button clicked" }
 			ap.children.add(button)
 
@@ -67,7 +67,7 @@ class NoTestFXTest {
 			stage.show()
 		}).run()
 
-		// then
+		// then - some basic tests
 		FXBlock(Runnable {
 			val button = ap.children.find { it is Button } as Button
 			button.fire()
