@@ -27,6 +27,8 @@ import org.junit.BeforeClass
 import org.junit.Test
 
 
+
+
 /**
  * Runs JavaFX unit tests without TestFx
  */
@@ -36,10 +38,13 @@ class NoTestFXTest {
 		@BeforeClass
 		@JvmStatic
 		fun startJavaFXRuntime() {
-			Platform.startup {}
+			try {
+				Platform.startup {}
+			}catch(e:IllegalStateException){
+				println("JavaFX runtime already started.")
+			}
 		}
 	}
-
 
 	/**
 	 * More common case, and generally safer, as it's often hard to tell

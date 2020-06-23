@@ -26,20 +26,20 @@ import org.epistatic.app1.controller.Controller
 import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Test
 
+// Node Ids defined in the FXML file. Is a CSS Id selector
+// Use these to uniquely identify JavaFX controls for testing
+private const val LIST_DEMO_TAB = "#listTab"
+private const val ITEM_LIST_VIEW = "#itemListView"
+private const val ENTER_ITEM_FIELD = "#enterItemField"
+private const val ADD_ITEM_BUTTON = "#addItemButton"
+
 /**
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests per se.
  */
 class ItemTabIntegrationTest : BetterApplicationTest() {
 
-   // Node Ids defined in the FXML file. Is a CSS Id selector
-   // Use these to uniquely identify JavaFX controls for testing
-   companion object {
-      const val LIST_DEMO_TAB = "#listTab"
-      const val ITEM_LIST_VIEW = "#itemListView"
-      const val ENTER_ITEM_FIELD = "#enterItemField"
-      const val ADD_ITEM_BUTTON = "#addItemButton"
-   }
+
 
    private lateinit var controller: Controller
 

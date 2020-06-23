@@ -27,6 +27,11 @@ import org.epistatic.app2.model.Person
 import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Test
 
+// Node Ids defined in the FXML file. Is a CSS Id selector
+// Use these to uniquely identify JavaFX controls for testing
+private const val FRIEND_LIST_VIEW = "#friendListView"
+private const val PARTY_LIST_VIEW = "#partyListView"
+
 /**
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests, but closer to integration tests.
@@ -35,15 +40,7 @@ import org.junit.Test
  */
 class App2IntegrationTest : BetterApplicationTest() {
 
-   // Node Ids defined in the FXML file. Is a CSS Id selector
-   // Use these to uniquely identify JavaFX controls for testing
-   companion object {
-      const val FRIEND_LIST_VIEW = "#friendListView"
-      const val PARTY_LIST_VIEW = "#partyListView"
-   }
-
    private lateinit var controller: Controller
-
 
    override fun start(stage: Stage?) {
       // We instantiate a loader directly so we can access the controller for testing

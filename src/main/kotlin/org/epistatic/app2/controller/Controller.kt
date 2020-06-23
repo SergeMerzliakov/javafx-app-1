@@ -30,6 +30,10 @@ import javafx.stage.Stage
 import org.epistatic.app2.model.Person
 import java.io.File
 
+
+private val happy = Image(Controller::class.java.getResourceAsStream("/app2/happy.png"))
+private val sad = Image(Controller::class.java.getResourceAsStream("/app2/sad.png"))
+
 /**
  * Initialized By JavaFX Loader when loading the FXML document.
  *
@@ -38,11 +42,6 @@ import java.io.File
  * A controller is a compiled class that implements the "code behind" the object hierarchy defined by the document.
  */
 class Controller {
-
-   companion object {
-      val happy = Image(Controller::class.java.getResourceAsStream("/app2/happy.png"))
-      val sad = Image(Controller::class.java.getResourceAsStream("/app2/sad.png"))
-   }
 
    @FXML lateinit var friendListView: ListView<Person>
    @FXML lateinit var partyListView: ListView<Person>

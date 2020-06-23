@@ -26,14 +26,12 @@ import org.epistatic.app3.event.FileSelectedEvent
 import java.io.File
 import java.nio.charset.Charset
 
+private const val PREVIEW_BYTES = 8192
+
 /**
  * Controller for app3/fileData.fxml - which displays the contents of file in a TextArea
  */
 class FileDataController(eventBus: EventBus) : EventAwareController(eventBus) {
-
-   companion object {
-      const val PREVIEW_BYTES = 8192
-   }
 
    // view
    @FXML lateinit var fileContentsArea: TextArea

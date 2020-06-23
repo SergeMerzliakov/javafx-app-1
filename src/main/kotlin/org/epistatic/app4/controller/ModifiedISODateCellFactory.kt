@@ -23,14 +23,12 @@ import org.epistatic.app4.model.DateItem
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
+private val customFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd => HH:mm:ss")
+
 /**
  * Sets cell's text to be a formatted date
  */
 class ModifiedISODateCellFactory : Callback<TableColumn<DateItem, OffsetDateTime>, TableCell<DateItem, OffsetDateTime>> {
-
-   companion object {
-      private val customFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd => HH:mm:ss")
-   }
 
    override fun call(col: TableColumn<DateItem, OffsetDateTime>?): TableCell<DateItem, OffsetDateTime> {
       return object : TableCell<DateItem, OffsetDateTime>() {

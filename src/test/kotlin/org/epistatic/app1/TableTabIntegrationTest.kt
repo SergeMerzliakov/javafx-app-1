@@ -25,6 +25,11 @@ import org.epistatic.app1.controller.Controller
 import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Test
 
+// Node Ids defined in the FXML file. Is a CSS Id selector
+// Use these to uniquely identify JavaFX controls for testing
+private const val TABLE_DEMO_TAB = "#basicTableTab"
+private const val PROPERTY_TABLE_VIEW = "#propertyTableView"
+
 /**
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests per se.
@@ -33,13 +38,6 @@ import org.junit.Test
  * table views.
  */
 class TableTabIntegrationTest : BetterApplicationTest() {
-
-   // Node Ids defined in the FXML file. Is a CSS Id selector
-   // Use these to uniquely identify JavaFX controls for testing
-   companion object {
-      const val TABLE_DEMO_TAB = "#basicTableTab"
-      const val PROPERTY_TABLE_VIEW = "#propertyTableView"
-   }
 
    private lateinit var controller: Controller
 

@@ -27,25 +27,22 @@ import org.epistatic.app1.controller.Controller
 import org.epistatic.test.utils.BetterApplicationTest
 import org.junit.Test
 
+// Node Ids defined in the FXML file. Is a CSS Id selector
+// Use these to uniquely identify JavaFX controls for testing
+private const val FIELD_DEMO_TAB = "#fieldTab"
+private const val SCHEME_COMBO = "#schemeCombo"
+private const val HOST_FIELD = "#hostField"
+private const val PORT_FIELD = "#portField"
+private const val GENERATE_URL_BUTTON = "#generateUrlButton"
+private const val URL_LABEL = "#urlLabel"
+
 /**
  * Use Junit TestFX to integration test the application UI, so
  * not unit tests per se.
  */
 class FieldTabIntegrationTest : BetterApplicationTest() {
 
-   // Node Ids defined in the FXML file. Is a CSS Id selector
-   // Use these to uniquely identify JavaFX controls for testing
-   companion object {
-      const val FIELD_DEMO_TAB = "#fieldTab"
-      const val SCHEME_COMBO = "#schemeCombo"
-      const val HOST_FIELD = "#hostField"
-      const val PORT_FIELD = "#portField"
-      const val GENERATE_URL_BUTTON = "#generateUrlButton"
-      const val URL_LABEL = "#urlLabel"
-   }
-
    private lateinit var controller: Controller
-
 
    override fun start(stage: Stage?) {
       // We instantiate a loader directly so we can access the controller for testing
