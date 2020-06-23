@@ -71,9 +71,13 @@ Build the applications with gradle:
     gradlew clean build
 
 
-Run all the unit and integration tests
+Run all the unit and integration tests in headless mode
 
     gradlew test
+    
+To run tests and show their execution with the TestFX robot use the `showTests` environment variable
+
+    gradlew test -DshowTests=true    
     
 ---
 #### Application 1 - Basic JavaFx + Kotlin Application
@@ -145,3 +149,6 @@ Start the application with:
 Start the application with:
 
     gradlew runApp6
+
+
+

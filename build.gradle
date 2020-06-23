@@ -38,6 +38,7 @@ dependencies {
     testCompile "org.assertj:assertj-core:3.11.1"
     testCompile "org.testfx:testfx-core:4.0.16-alpha"
     testCompile "org.testfx:testfx-junit:4.0.16-alpha"
+    testCompile "org.testfx:openjfx-monocle:jdk-12.0.1+2"
 }
 
 compileKotlin {
@@ -45,6 +46,14 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+// tests run in headless mode by default, to watch tests pass in -DshowTests=true on command line
+test {
+    if (System.getProperty('showTests') != null)
+        systemProperty 'headless', false
+    else
+        systemProperty 'headless', true
 }
 
 task runApp1(type: JavaExec) {

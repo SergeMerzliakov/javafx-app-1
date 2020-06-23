@@ -23,10 +23,21 @@ import javafx.scene.control.TableView
 import org.epistatic.app1.model.SomeProperty
 import org.testfx.framework.junit.ApplicationTest
 
+const val HEADLESS_TESTING = "headless"
+
 /**
  * Add a few utility methods for accessing table and list view elements
  */
 open class BetterApplicationTest : ApplicationTest() {
+
+   init {
+      if (System.getProperty(HEADLESS_TESTING) == "true") {
+         System.setProperty("testfx.robot", "glass");
+         System.setProperty("testfx.headless", "true");
+         System.setProperty("prism.order", "sw");
+         System.setProperty("prism.text", "t2k");
+      }
+   }
 
    /**
     * Helper function to get a row from a TableView
