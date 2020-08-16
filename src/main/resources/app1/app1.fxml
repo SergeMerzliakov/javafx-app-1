@@ -198,7 +198,7 @@
         </AnchorPane>
     </children>
     <stylesheets>
-        <URL value="@../bootstrap3.css"/>
         <URL value="@app1.css"/>
+        <URL value="@demo-theme.css"/>
     </stylesheets>
 </VBox>
