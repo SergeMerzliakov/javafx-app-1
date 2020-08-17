@@ -1,35 +1,53 @@
-.sunken-label {
-    rgba(255, 255, 255, 0.75),
-    linear-gradient(to bottom, #eeeeee 0%, #f9f9f9 100%);
-    -fx-background-insets: 0 1 1 0, 1 0 0 1, 1;
-    -fx-padding: 7px;
-    -fx-background-radius: 3px;
-    -fx-border-radius: 3px;
-    -fx-font: 14px "Arial";
-}
+/*.sunken-label {*/
+/*    rgba(255, 255, 255, 0.75),*/
+/*    linear-gradient(to bottom, #eeeeee 0%, #f9f9f9 100%);*/
+/*    -fx-background-insets: 0 1 1 0, 1 0 0 1, 1;*/
+/*    -fx-padding: 7px;*/
+/*    -fx-background-radius: 13px;*/
+/*    -fx-border-radius: 3px;*/
+/*    -fx-font: 14px "Arial";*/
+/*}*/
 
 .table-column {
     -fx-alignment: center;
 }
 
-.text-field{
+.text-field {
     -fx-font-family: Consolas, "Courier New";
 }
 
 .tab-pane .tab-header-area .tab {
-    -fx-border-radius: 8 8 0 0;
-    -fx-background-radius: 5 5 0 0;
-    -fx-border-color: transparent;
-    -fx-padding: 3 10 5 10;
-    -fx-background-insets: 0;
+    -fx-background-radius: 12 3 0 0;
+    /*-fx-border-width: 0px;*/
+    /*-fx-border-color: transparent;*/
+    -fx-padding: 4 10 4 10;
 }
 
-.button{
-    -fx-background-color:  derive(-fx-body-color, 10%);
+/* label inside tab header */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-padding: 4px 10px 4px 0px;
+    -fx-graphic-text-gap: 2px;
+    -fx-text-alignment: left;
+}
+
+/* 'x' inside tab header */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button {
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button:hover {
+    -fx-background-color: #e39999;
+    -fx-cursor: hand;
+}
+
+.button {
+    -fx-background-color: derive(-fx-body-color, 10%);
     -fx-border-color: derive(-fx-body-color, 5%);
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.0, 0, 3);
 }
-.button:default{
-    -fx-text-fill: #efcccc;
+
+.button:default {
+    -fx-text-fill: #e39999;
 }
+
+
 
