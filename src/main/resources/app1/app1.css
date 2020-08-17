@@ -18,22 +18,16 @@
 
 .tab-pane .tab-header-area .tab {
     -fx-background-radius: 12 3 0 0;
-    -fx-border-width: 0px;
-    -fx-border-color: transparent;
+    /*-fx-border-width: 0px;*/
+    /*-fx-border-color: transparent;*/
     -fx-padding: 4 10 4 10;
 }
 
 /* label inside tab header */
 .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
-    -fx-padding: 4px 10px 4px 2px;
+    -fx-padding: 4px 10px 4px 0px;
+    -fx-graphic-text-gap: 2px;
     -fx-text-alignment: left;
-    -fx-border-width: 0px;
-    -fx-background-color: transparent;
-}
-
-/* label inside tab header */
-.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label:hover {
-    -fx-text-fill: #e39999;
 }
 
 /* 'x' inside tab header */

@@ -192,7 +192,7 @@
         </AnchorPane>
     </children>
     <stylesheets>
-        <URL value="@../blue-theme.css" />
+        <URL value="@blue-theme.css" />
         <URL value="@app1.css" />
     </stylesheets>
 </VBox>
