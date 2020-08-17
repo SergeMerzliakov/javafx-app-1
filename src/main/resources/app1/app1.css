@@ -53,5 +53,9 @@
     -fx-text-fill: #e39999;
 }
 
+/* stops border around selected tab header labels */
+.focus-indicator{
+    -fx-border-color: transparent;
+}
 
 
