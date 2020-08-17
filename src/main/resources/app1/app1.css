@@ -30,6 +30,11 @@
     -fx-text-alignment: left;
 }
 
+/* label inside tab header */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label:hover {
+    -fx-text-fill: #e39999;
+}
+
 /* 'x' inside tab header */
 .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button {
 }
