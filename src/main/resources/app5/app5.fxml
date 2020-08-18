@@ -20,7 +20,7 @@
         </AnchorPane>
     </children>
     <stylesheets>
-        <URL value="@../bootstrap3.css"/>
+        <URL value="@../blue-theme.css"/>
         <URL value="@app5.css"/>
     </stylesheets>
 </VBox>

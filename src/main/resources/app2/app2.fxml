@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -56,4 +57,8 @@
             </VBox.margin>
         </GridPane>
     </children>
+    <stylesheets>
+        <URL value="@../blue-theme.css"/>
+        <URL value="@app2.css"/>
+    </stylesheets>
 </VBox>

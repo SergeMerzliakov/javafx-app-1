@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import java.net.URL?>
 <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../bootstrap3.css" vgap="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.epistatic.app6.controller.ApplicationController">
   <columnConstraints>
     <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
@@ -62,4 +63,7 @@
          </GridPane.margin>
       </Label>
    </children>
+  <stylesheets>
+    <URL value="@../bootstrap3.css"/>
+  </stylesheets>
 </GridPane>

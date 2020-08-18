@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="50" minWidth="150" prefHeight="200.0" prefWidth="800.0"
           stylesheets="@app4.css" xmlns="http://javafx.com/javafx/11.0.1"
           fx:controller="org.epistatic.app4.controller.ApplicationController">
@@ -39,4 +40,8 @@
             </children>
         </AnchorPane>
     </children>
+    <stylesheets>
+        <URL value="@../blue-theme.css"/>
+        <URL value="@app4.css"/>
+    </stylesheets>
 </GridPane>

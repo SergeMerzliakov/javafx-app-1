@@ -58,6 +58,6 @@
         </FlowPane>
     </children>
     <stylesheets>
-        <URL value="@../bootstrap3.css"/>
+        <URL value="@../blue-theme.css"/>
     </stylesheets>
 </VBox>
