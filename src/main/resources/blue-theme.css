@@ -134,8 +134,9 @@
     -fx-box-border: ladder(
             -fx-color,
             black 20%,
-            derive(-fx-color, -15%) 30%
+            derive(-fx-color, -5%) 10%
     );
+
 
     /* Darker than -fx-background and used to draw boxes around text boxes and
      * password boxes.
@@ -143,8 +144,9 @@
     -fx-text-box-border: ladder(
             -fx-background,
             black 10%,
-            derive(-fx-background, -15%) 30%
+            derive(-fx-background, -5%) 10%
     );
+
 
     /* Lighter than -fx-background and used to provide a small highlight when
      * needed on top of -fx-background. This is never a shadow in Modena but
@@ -222,14 +224,15 @@
     /* The color to use as -fx-text-fill when painting text on top of
      * backgrounds filled with -fx-control-inner-background.
      */
-    -fx-text-inner-color: ladder(
-            -fx-control-inner-background,
-            -fx-light-text-color 45%,
-            -fx-dark-text-color 46%,
-            -fx-dark-text-color 59%,
-            -fx-mid-text-color 60%
-    );
+    /*-fx-text-inner-color: ladder(*/
+    /*        -fx-control-inner-background,*/
+    /*        -fx-light-text-color 45%,*/
+    /*        -fx-dark-text-color 46%,*/
+    /*        -fx-dark-text-color 59%,*/
+    /*        -fx-mid-text-color 60%*/
+    /*);*/
 
+    -fx-text-inner-color: #f8f7f7;
     /* The color to use for small mark-like objects such as checks on check
      * boxes, filled in circles in radio buttons, arrows on scroll bars, etc.
      */
@@ -295,3 +298,75 @@
 
     -fx-background-color: -fx-background;
 }
+
+.display-label {
+    -fx-padding: 2px;
+    -fx-background-radius: 2px;
+    -fx-border-radius: 2px;
+    -fx-border-color: derive(-fx-inner-border, 7%);
+    -fx-font: 14px "Arial";
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.0, 0, 3);*/
+    -fx-background-color: derive(-fx-control-inner-background, 0%);
+}
+
+.label{
+}
+
+.table-column {
+    -fx-alignment: center;
+}
+
+.text-field {
+    -fx-font-family: Consolas, "Courier New";
+}
+
+.tab-pane .tab-header-area .tab {
+    -fx-background-radius: 12 3 0 0;
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
+    -fx-padding: 4 10 4 10;
+}
+
+/* label inside tab header */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-padding: 4px 10px 4px 0px;
+    -fx-text-alignment: left;
+}
+
+/* label inside tab header */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label:hover {
+    -fx-text-fill: #e39999;
+}
+
+.tab-pane > .tab-header-area{
+}
+/* 'x' inside tab header */
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button {
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-close-button:hover {
+    -fx-background-color: #e39999;
+    -fx-cursor: hand;
+}
+
+.button {
+    -fx-background-color: derive(-fx-body-color, 10%);
+    -fx-border-color: derive(-fx-body-color, 5%);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.0, 0, 3);
+}
+
+.button:default {
+    -fx-text-fill: #e39999;
+}
+
+
+.combo-box{
+    -fx-border-color: derive(-fx-inner-border, 0%);
+}
+
+/* stops border around selected tab header labels */
+.focus-indicator{
+    -fx-border-color: transparent;
+}
+
+

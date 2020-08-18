@@ -63,7 +63,7 @@
                                                 <Insets bottom="4.0" />
                                             </padding>
                                         </Label>
-                                        <Label id="urlLabel" fx:id="urlLabel" maxWidth="1.7976931348623157E308" minHeight="30.0" styleClass="sunken-label" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                        <Label id="urlLabel" fx:id="urlLabel" maxWidth="1.7976931348623157E308" minHeight="30.0" styleClass="display-label" textAlignment="RIGHT" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                                             <GridPane.margin>
                                                 <Insets left="8.0" right="8.0" />
                                             </GridPane.margin>
