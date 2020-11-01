@@ -134,6 +134,20 @@ task runApp6(type: JavaExec) {
     }
 }
 
+task runApp7(type: JavaExec) {
+    group = "Application"
+    description = "Runs Application 7 - Focus Demo"
+    classpath sourceSets.main.runtimeClasspath
+    main = 'org.epistatic.app7.Main'
+    doFirst {
+        jvmArgs = [
+                '--module-path', "${JFX_INSTALL}/lib",
+                '--add-modules', 'javafx.fxml,javafx.controls'
+        ]
+    }
+}
+
+
 task collateInstall(type:Copy){
     delete "installBuild"
     mkdir "installBuild/lib"

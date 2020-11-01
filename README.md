@@ -17,6 +17,7 @@ The list of demo apps includes:
   * **Application 4** -  TableView Cell Value Factories vs Cell Factories
   * **Application 5** -  Custom Dialogs, an alternative to JavaFX official approach
   * **Application 6** -  Event Handling with helper and extension functions
+  * **Application 7** -  Focus Functions
   
   
 My blog on JavaFx with Kotlin at [https://thickclient.blog/](https://thickclient.blog/)
@@ -150,5 +151,15 @@ Start the application with:
 
     gradlew runApp6
 
+
+
+#### Application 7 - Focus Handling
+
+* Add enter key processing, so hitting enter will now shift focus to next control - a UI tweak
+* Builds valid JDBC Urls for several databases as a side benefit!
+
+Start the application with:
+
+    gradlew runApp7
 
 
