@@ -56,7 +56,7 @@ class FocusHandler : EventHandler<KeyEvent> {
 		if (e?.code === KeyCode.ENTER) {
 			val ctrl = e.source as Control
 			// Tab order is determined by order of the children inside the parent.
-			// So on hitting enter we shift focus to next child in order
+			// On hitting enter we shift focus to next child in order
 			val kids = ctrl.parent.childrenUnmodifiable
 			val nextFocus = kids.indexOf(ctrl) + 1
 			if (nextFocus < kids.size) {

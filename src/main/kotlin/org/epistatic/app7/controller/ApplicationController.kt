@@ -44,17 +44,23 @@ class ApplicationController {
       vendorChoice.items.add(ORACLE)
       vendorChoice.items.add(POSTGRES)
       vendorChoice.items.add(SQL_SERVER)
+      vendorChoice.selectionModel.select(2)
 
       // ensure enter key also shifts focus to next control in tab order
-      hostText.onKeyPressed = FocusHandler()
-      portText.onKeyPressed = FocusHandler()
-      databaseText.onKeyPressed = FocusHandler()
+      val enterKeyHandler = FocusHandler()
+
+      hostText.onKeyPressed = enterKeyHandler
+      portText.onKeyPressed = enterKeyHandler
+      databaseText.onKeyPressed = enterKeyHandler
 
       // any time focus is lost, rebuild JDBC URL
       focusLostHandler(hostText) { generateJDBCUrl() }
       focusLostHandler(portText) { generateJDBCUrl() }
       focusLostHandler(databaseText) { generateJDBCUrl() }
       selectionChangedHandler(vendorChoice) { generateJDBCUrl() }
+
+      //generate a URL from initial value of fields
+      generateJDBCUrl()
    }
 
    /**
