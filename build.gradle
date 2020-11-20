@@ -42,10 +42,10 @@ dependencies {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "11"
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "11"
 }
 
 // tests run in headless mode by default, to watch tests pass in -DshowTests=true on command line
@@ -57,94 +57,52 @@ test {
 }
 
 task runApp1(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 1 - Basic JavaFx"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app1.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app1.Main'
     }
+    dependsOn 'run'
 }
 
 task runApp2(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 2 - Drag and Drop"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app2.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app2.Main'
     }
+    dependsOn 'run'
 }
 
 task runApp3(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 3 - Multiple Controllers with Events"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app3.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app3.Main'
     }
+    dependsOn 'run'
 }
 
 task runApp4(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 4 - Table View Cell Factories"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app4.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app4.Main'
     }
+    dependsOn 'run'
 }
 
 task runApp5(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 5 - Custom Dialog Demo"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app5.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app5.Main'
     }
+    dependsOn 'run'
 }
 
 task runApp6(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 6 - Event Handlers"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app6.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app6.Main'
     }
+    dependsOn 'run'
 }
 
 task runApp7(type: JavaExec) {
-    group = "Application"
-    description = "Runs Application 7 - Focus Demo"
-    classpath sourceSets.main.runtimeClasspath
-    main = 'org.epistatic.app7.Main'
-    doFirst {
-        jvmArgs = [
-                '--module-path', "${JFX_INSTALL}/lib",
-                '--add-modules', 'javafx.fxml,javafx.controls'
-        ]
+    run {
+        mainClassName = 'org.epistatic.app7.Main'
     }
+    dependsOn 'run'
 }
 
 
